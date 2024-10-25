@@ -7,9 +7,11 @@
     <list default="true" id="47745258-131c-478a-a91a-5812bc26adf3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/BDModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/BDModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/ProntoRecifeApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/ProntoRecifeApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/medicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/medicoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOMedico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOMedico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/MedicoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/MedicoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/medicoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/medicoController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +37,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ProntoRecifeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/matheus-linux/Documentos/ProntoMed/Back-End-Pronto-Recife&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ProntoRecifeApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/matheus-linux/Documentos/sistema-para-clinica",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
