@@ -15,17 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class MedicoController {
-private final MedicoMapper medicoMapper;
-private final MedicoService medicoService;
+    private final MedicoMapper medicoMapper;
+    private final MedicoService medicoService;
 
 
-
-
-@PostMapping("/medico")
-    public ResponseEntity<DTOMedico> saveMedico(@RequestBody @Valid DTOMedico dtoMedico){
-    return ResponseEntity.status(HttpStatus.CREATED).body(medicoService.createMedico(dtoMedico));
-}
-
+    @PostMapping("/medico")
+    public ResponseEntity<DTOMedico> saveMedico(@RequestBody @Valid DTOMedico dtoMedico) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(medicoService.createMedico(dtoMedico));
+    }
 
 
 }
