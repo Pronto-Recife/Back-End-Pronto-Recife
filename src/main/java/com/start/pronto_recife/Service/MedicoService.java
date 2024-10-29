@@ -20,4 +20,5 @@ public class MedicoService {
         MedicoModel medicoModel = medicoRepository.save(medicoMapper.toModel(dtoMedico));
         return medicoMapper.toDTO(medicoModel);
     }
+
 }
