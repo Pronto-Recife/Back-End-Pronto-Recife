@@ -1,30 +1,30 @@
 package com.start.pronto_recife.DTOs;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 public record DTOPaciente(UUID id,
-                          @NotBlank @Pattern(regexp = "\\d{11}")
+                          @NotNull @NotBlank @Min(14) @Max(14)
                           String CPF,
-                          @NotBlank
+                          @NotNull @NotBlank
                           String nome_completo,
-                          @NotBlank
+                          @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
                           LocalDate data_nascimento,
-                          @NotBlank
+                          @NotNull @NotBlank
                           String genero,
                           @NotBlank @Email
                           String email,
-                          @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
+                          @NotNull @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                           String telefone,
+                          @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                           String contato_representante,
-                          @NotBlank
+                          @NotNull @NotBlank
                           String cep,
-                          @NotBlank
-                          String endereço,
-                          @Pattern(regexp = "\\d{11}")
-                          String responsavel_CPF) {
+                          @NotNull @NotBlank
+                          String endereco,
+                          @NotBlank @Min(14) @Max(14)
+                          String responsavel_CPF){
 }

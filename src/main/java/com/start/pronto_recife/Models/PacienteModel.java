@@ -1,10 +1,9 @@
 package com.start.pronto_recife.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -14,12 +13,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "paciente")
 @Getter @Setter
-public class PacienteModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+@AllArgsConstructor
+@NoArgsConstructor
+public class PacienteModel{
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(name = "CPF")
+    @Column(name = "cpf", unique = true, length = 14)
     private String CPF;
     private String nome_completo;
     private LocalDate data_nascimento;
@@ -29,5 +29,6 @@ public class PacienteModel implements Serializable {
     private String contato_representante;
     private String cep;
     private String endereco;
-    private String responsavel_CPF;
+    @Column(name = "responsavel_id", length = 16)
+    private UUID responsavel_id;
 }
