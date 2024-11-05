@@ -7,23 +7,14 @@
     <list default="true" id="47745258-131c-478a-a91a-5812bc26adf3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/MedicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/MedicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/MedicoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/MedicoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/ModelPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/PacienteModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/MedicoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/MedicoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOMedico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOMedico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOPaciente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapperImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/BDModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/BDModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/MedicoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/MedicoModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/ModelPaciente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/ProntoRecifeApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/ProntoRecifeApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/MedicoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/MedicoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/MedicoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/MedicoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeloBancoDados/BDProntoRecife.sql" beforeDir="false" afterPath="$PROJECT_DIR$/modeloBancoDados/BDProntoRecife.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/PacienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/PacienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/PacienteService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/MedicoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/MedicoMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/PacienteMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/PacienteMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -56,15 +50,22 @@
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matheus-linux/Documentos/ProntoMed/Back-End-Pronto-Recife",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "spring.configuration.checksum": "5df3a5d43fad1220beeb1303ad626db2",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -84,8 +85,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729456069255</updated>
+      <workItem from="1730833131483" duration="5018000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

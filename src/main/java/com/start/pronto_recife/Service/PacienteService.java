@@ -33,4 +33,10 @@ public class PacienteService {
         List<PacienteModel> pacientes = pacienteRepository.findAll();
         return pacienteMapper.listEntitytoListDTO(pacientes);
     }
+
+    public DTOPaciente findByCPF(String CPF){
+        PacienteModel pacientExists = pacienteRepository.findByCPF(CPF).orElseThrow(() ->
+                new RuntimeException("CPF Não Existe!!"));
+        return pacienteMapper.toDTO(pacientExists);
+    }
 }
