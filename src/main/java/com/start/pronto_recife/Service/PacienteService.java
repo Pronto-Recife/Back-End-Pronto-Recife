@@ -5,28 +5,34 @@ import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.LifecycleState;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.stylesheets.LinkStyle;
 
-import java.awt.print.Pageable;
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class PacienteService {
+
     private final PacienteMapper pacienteMapper;
-    private  final PacienteRepository pacienteRepository;
+    private final PacienteRepository pacienteRepository;
 
     public DTOPaciente createPaciente(DTOPaciente dtoPaciente){
-        Optional<PacienteModel> cpfExist = pacienteRepository.findByCPF(dtoPaciente.CPF());
-        if (cpfExist.isPresent()) {
-            throw new RuntimeException("CPF Já Cadastrado!!");
+        if(pacienteRepository.findByCPF(dtoPaciente.CPF()).isPresent()){
+            throw new RuntimeException("CPF já existe!");
         }
-        PacienteModel pacienteModel = pacienteRepository.save(pacienteMapper.toModel(dtoPaciente));
-        return pacienteMapper.toDTO(pacienteModel);
+        PacienteModel newPaciente = pacienteMapper.toModel(dtoPaciente);
+        pacienteRepository.save(newPaciente);
+        return pacienteMapper.toDTO(newPaciente);
+    }
+
+    public DTOPaciente updatePaciente(UUID id, DTOPaciente dtoPaciente){
+        PacienteModel existingPaciente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Id não encontrado!"));
+        PacienteModel updatedModel = pacienteMapper.toModel(dtoPaciente);
+        updatedModel.setId(existingPaciente.getId());
+        pacienteRepository.save(updatedModel);
+        return pacienteMapper.toDTO(updatedModel);
     }
 
     public List<DTOPaciente> findAll(){
@@ -38,5 +44,11 @@ public class PacienteService {
         PacienteModel pacientExists = pacienteRepository.findByCPF(CPF).orElseThrow(() ->
                 new RuntimeException("CPF Não Existe!!"));
         return pacienteMapper.toDTO(pacientExists);
+    }
+
+    public void deletePaciente(UUID id){
+        PacienteModel pacienteExists = pacienteRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("Usuario não existe!"));
+        pacienteRepository.delete(pacienteExists);
     }
 }

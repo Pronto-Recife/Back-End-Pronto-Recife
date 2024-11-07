@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record DTOPaciente(UUID id,
-                          @NotNull @NotBlank @Min(14) @Max(14)
+                          @NotNull @NotBlank @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato ###.###.###-##")
                           String CPF,
                           @NotNull @NotBlank
                           String nome_completo,
@@ -25,6 +25,6 @@ public record DTOPaciente(UUID id,
                           String cep,
                           @NotNull @NotBlank
                           String endereco,
-                          @NotBlank @Min(14) @Max(14)
+                          @Min(14) @Max(14)
                           String responsavel_CPF){
 }
