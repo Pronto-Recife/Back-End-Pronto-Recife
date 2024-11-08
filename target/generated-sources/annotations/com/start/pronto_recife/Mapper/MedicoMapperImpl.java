@@ -2,13 +2,15 @@ package com.start.pronto_recife.Mapper;
 
 import com.start.pronto_recife.DTOs.DTOMedico;
 import com.start.pronto_recife.Models.MedicoModel;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-05T17:09:27-0300",
-    comments = "version: 1.6.2, compiler: javac, environment: Java 22.0.2 (Amazon.com Inc.)"
+    date = "2024-11-07T16:33:38-0300",
+    comments = "version: 1.6.2, compiler: javac, environment: Java 22.0.1 (Oracle Corporation)"
 )
 @Component
 public class MedicoMapperImpl implements MedicoMapper {
@@ -51,5 +53,19 @@ public class MedicoMapperImpl implements MedicoMapper {
         DTOMedico dTOMedico = new DTOMedico( cRM, nome_completo, especialidade, telefone, email );
 
         return dTOMedico;
+    }
+
+    @Override
+    public List<DTOMedico> listEntitytoListDTO(List<MedicoModel> medicos) {
+        if ( medicos == null ) {
+            return null;
+        }
+
+        List<DTOMedico> list = new ArrayList<DTOMedico>( medicos.size() );
+        for ( MedicoModel medicoModel : medicos ) {
+            list.add( toDTO( medicoModel ) );
+        }
+
+        return list;
     }
 }

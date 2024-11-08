@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOMedico;
+import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Mapper.MedicoMapper;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Repositories.MedicoRepository;
@@ -30,28 +31,26 @@ public class MedicoController {
     }
 
     @GetMapping("/medico")
-    public ResponseEntity<List<MedicoModel>> getAllMedicos(){
-        return ResponseEntity.status(HttpStatus.OK).body(medicoRepository.findAll());
+    public ResponseEntity<List<DTOMedico>> getAllMedicos(){
+        return ResponseEntity.status(HttpStatus.OK).body(medicoService.findAll());
     }
 
-    @GetMapping("/medico/{id}")
-    public ResponseEntity<Object> getOneMedico(@PathVariable(value = "id")String id){
-        Optional<MedicoModel> medicoModel = medicoRepository.findById(UUID.fromString(id));
-        if(medicoModel.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Medico nao encontrado. ");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(medicoModel.get());
+
+    @GetMapping("/medico/{CRM}")
+    public ResponseEntity<DTOMedico> getMedico(@PathVariable(value="CRM") String CRM){
+        DTOMedico medico = medicoService.findByCRM(CRM);
+        return ResponseEntity.ok().body(medico);
     }
 
-    @PutMapping("medico/{id}")
-    public ResponseEntity<Object> updateMedico(@PathVariable(value = "id") UUID id, @RequestBody @Valid DTOMedico dtoMedico) {
-        Optional<MedicoModel> medicoModel = medicoRepository.findById(id);
-        if (medicoModel.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Medico nao encontrado. ");
-        }
-        MedicoModel medicoModel1 = medicoModel.get();
-        BeanUtils.copyProperties(dtoMedico, medicoModel1);
-        return ResponseEntity.status(HttpStatus.OK).body(medicoRepository.save(medicoModel1));
-    }
+//    @PutMapping("medico/{id}")
+//    public ResponseEntity<Object> updateMedico(@PathVariable(value = "id") UUID id, @RequestBody @Valid DTOMedico dtoMedico) {
+//        Optional<MedicoModel> medicoModel = medicoRepository.findById(id);
+//        if (medicoModel.isEmpty()) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Medico nao encontrado. ");
+//        }
+//        MedicoModel medicoModel1 = medicoModel.get();
+//        BeanUtils.copyProperties(dtoMedico, medicoModel1);
+//        return ResponseEntity.status(HttpStatus.OK).body(medicoRepository.save(medicoModel1));
+//    }
 
 }
