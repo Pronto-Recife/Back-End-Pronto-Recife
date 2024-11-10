@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47745258-131c-478a-a91a-5812bc26adf3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modeloBancoDados/Modelo EER BDProntoRecife.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/PacienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/PacienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOPaciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOPaciente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/PacienteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/MedicoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/MedicoMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/PacienteMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/PacienteMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
-    <list id="56399176-72ca-4140-ad9f-977b44242b71" name="Changes by Rede14.2" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Mapper/PacienteMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Mapper/PacienteMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" afterDir="false" />
-    </list>
+    <list id="56399176-72ca-4140-ad9f-977b44242b71" name="Changes by Rede14.2" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,36 +24,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java">
-      <ranges>
-        <range start1="7" end1="9" start2="7" end2="7" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="10" end1="11" start2="8" end2="8" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="12" end1="13" start2="9" end2="9" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="14" end1="15" start2="10" end2="11" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-        <range start1="19" end1="19" start2="15" end2="16" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="20" end1="21" start2="17" end2="18" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="23" end1="26" start2="20" end2="22" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="27" end1="29" start2="23" end2="26" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="31" end1="31" start2="28" end2="37" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-        <range start1="41" end1="41" start2="47" end2="53" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java">
-      <ranges>
-        <range start1="3" end1="5" start2="3" end2="3" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="6" end1="6" start2="4" end2="5" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-        <range start1="12" end1="12" start2="11" end2="12" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-        <range start1="13" end1="14" start2="13" end2="14" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="16" end1="17" start2="16" end2="17" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="18" end1="19" start2="18" end2="18" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="20" end1="22" start2="19" end2="20" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-        <range start1="25" end1="27" start2="23" end2="24" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="30" end1="32" start2="27" end2="28" changelist="56399176-72ca-4140-ad9f-977b44242b71" />
-        <range start1="36" end1="37" start2="32" end2="42" changelist="47745258-131c-478a-a91a-5812bc26adf3" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -78,36 +31,37 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2niVptIUWlQymbiRsuc7e2S7vkq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ProntoRecifeApplication.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Develop",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matheus-linux/Documentos/ProntoMed/Back-End-Pronto-Recife",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "5df3a5d43fad1220beeb1303ad626db2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ProntoRecifeApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/matheus-linux/Documentos/ProntoMed/Back-End-Pronto-Recife&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5df3a5d43fad1220beeb1303ad626db2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProntoRecifeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="pronto-recife" />
