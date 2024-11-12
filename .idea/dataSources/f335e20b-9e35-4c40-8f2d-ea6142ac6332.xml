@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="prontorecife@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.52">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1069,48 +1069,48 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
     <column id="307" parent="299" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="308" parent="299" name="data_consulta">
-      <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="309" parent="299" name="tratamentos_prescritos">
-      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="310" parent="299" name="instrucoes_recomendacoes">
-      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="311" parent="299" name="sintomas">
-      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="312" parent="299" name="historico_familiar">
-      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="313" parent="299" name="paciente_id">
-      <DasType>binary(16)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="314" parent="299" name="medico_id">
-      <DasType>binary(16)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="315" parent="299" name="laudos_id">
-      <DasType>binary(16)|0s</DasType>
       <Position>9</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <foreign-key id="316" parent="299" name="fk_consulta_paciente">
       <ColNames>paciente_id</ColNames>
@@ -1150,42 +1150,42 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="324" parent="300" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="325" parent="300" name="nome">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="326" parent="300" name="endereco">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="327" parent="300" name="telefone">
-      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <column id="328" parent="300" name="email">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="329" parent="300" name="id_medico">
-      <DasType>binary(16)|0s</DasType>
       <Position>6</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="330" parent="300" name="id_paciente">
-      <DasType>binary(16)|0s</DasType>
       <Position>7</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="331" parent="300" name="id_consulta">
-      <DasType>binary(16)|0s</DasType>
       <Position>8</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <foreign-key id="332" parent="300" name="fk_estabelecimento_medico">
       <ColNames>id_medico</ColNames>
@@ -1225,34 +1225,34 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="340" parent="301" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="341" parent="301" name="data_exame">
-      <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="342" parent="301" name="resultado">
-      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="343" parent="301" name="nome_do_exame">
-      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="344" parent="301" name="paciente_id">
-      <DasType>binary(16)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="345" parent="301" name="consulta_id">
-      <DasType>binary(16)|0s</DasType>
       <Position>6</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <foreign-key id="346" parent="301" name="fk_exame_paciente">
       <ColNames>paciente_id</ColNames>
@@ -1283,23 +1283,23 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="352" parent="302" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="353" parent="302" name="cirurgias_anteriores">
-      <DasType>text|0s</DasType>
       <Position>2</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="354" parent="302" name="condicoes_gerais">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="355" parent="302" name="paciente_id">
-      <DasType>binary(16)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <foreign-key id="356" parent="302" name="fk_historico_paciente">
       <ColNames>paciente_id</ColNames>
@@ -1321,14 +1321,14 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="360" parent="303" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="361" parent="303" name="descricao">
-      <DasType>text|0s</DasType>
       <Position>2</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <index id="362" parent="303" name="PRIMARY">
       <ColNames>id</ColNames>
@@ -1341,30 +1341,30 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="364" parent="304" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="365" parent="304" name="crm">
-      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <column id="366" parent="304" name="email">
-      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="367" parent="304" name="nome_completo">
-      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="368" parent="304" name="telefone">
-      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <index id="369" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
@@ -1393,57 +1393,57 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>
     <column id="375" parent="305" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="376" parent="305" name="nome_completo">
-      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="377" parent="305" name="cpf">
-      <DasType>varchar(14)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>varchar(14)|0s</StoredType>
     </column>
     <column id="378" parent="305" name="data_nascimento">
-      <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="379" parent="305" name="genero">
-      <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>varchar(10)|0s</StoredType>
     </column>
     <column id="380" parent="305" name="email">
-      <DasType>varchar(100)|0s</DasType>
       <Position>6</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="381" parent="305" name="telefone">
-      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <column id="382" parent="305" name="contato_representante">
-      <DasType>varchar(15)|0s</DasType>
       <Position>8</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <column id="383" parent="305" name="cep">
-      <DasType>varchar(9)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
+      <StoredType>varchar(9)|0s</StoredType>
     </column>
     <column id="384" parent="305" name="endereco">
-      <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
+      <StoredType>varchar(250)|0s</StoredType>
     </column>
     <column id="385" parent="305" name="responsavel_id">
-      <DasType>binary(16)|0s</DasType>
       <Position>11</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <foreign-key id="386" parent="305" name="fk_paciente_responsavel">
       <ColNames>responsavel_id</ColNames>
@@ -1473,39 +1473,39 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>
     <column id="392" parent="306" name="id">
-      <DasType>binary(16)|0s</DasType>
       <DefaultExpression>(uuid_to_bin(uuid()))</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>binary(16)|0s</StoredType>
     </column>
     <column id="393" parent="306" name="nome_completo">
-      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <column id="394" parent="306" name="grau_parentesco">
-      <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>varchar(45)|0s</StoredType>
     </column>
     <column id="395" parent="306" name="data_nascimento">
-      <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="396" parent="306" name="genero">
-      <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>varchar(10)|0s</StoredType>
     </column>
     <column id="397" parent="306" name="telefone">
-      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
+      <StoredType>varchar(15)|0s</StoredType>
     </column>
     <column id="398" parent="306" name="email">
-      <DasType>varchar(50)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(50)|0s</StoredType>
     </column>
     <index id="399" parent="306" name="PRIMARY">
       <ColNames>id</ColNames>
