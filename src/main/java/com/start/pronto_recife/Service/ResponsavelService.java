@@ -5,6 +5,9 @@ import com.start.pronto_recife.Mapper.ResponsavelMapper;
 import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.ResponsavelRepository;
 import lombok.RequiredArgsConstructor;
+import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +28,7 @@ public class  ResponsavelService {
         ResponsavelModel existingResponsavel = responsavelRepository.findById(id).orElseThrow(() -> new RuntimeException("Id do responsável não encontrado."));
 
         ResponsavelModel updatedResponsavel = responsavelMapper.toModel(dtoResponsavel);
-        updatedResponsavel.setIdResponsavel(existingResponsavel.getIdResponsavel());
+        updatedResponsavel.setId(existingResponsavel.getId());
         responsavelRepository.save(updatedResponsavel);
         return responsavelMapper.toDTO(updatedResponsavel);
     }
