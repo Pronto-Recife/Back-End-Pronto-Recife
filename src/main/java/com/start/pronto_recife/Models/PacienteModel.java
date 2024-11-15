@@ -24,7 +24,9 @@ public class PacienteModel{
     private String nome_completo;
     private LocalDate data_nascimento;
     private String genero;
+    @Column(name = "email", unique = true)
     private String email;
+    private String senha;
     private String telefone;
     private String contato_representante;
     private String cep;

@@ -4,51 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47745258-131c-478a-a91a-5812bc26adf3" name="Changes" comment="">
+    <list default="true" id="47745258-131c-478a-a91a-5812bc26adf3" name="Changes" comment="CRUD completo do Estabelecimento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/EstabelecimentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/EstabelecimentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/EstabelecimentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/EstabelecimentoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/EstabelecimentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/LaudoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/MedicoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Controllers/PacienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOEstabelecimento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOLaudo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOMedico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/DTOs/DTOPaciente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/EstabelecimentoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/EstabelecimentoMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/LaudoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/LaudoMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/MedicoMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/PacienteMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Mapper/PacienteMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/EstabelecimentoModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/LaudoModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/MedicoModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Models/PacienteModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/ProntoRecifeApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/EstabelecimentoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/LaudoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/MedicoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Repositories/PacienteRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/EstabelecimentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/LaudoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/MedicoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/start/pronto_recife/Service/PacienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/EstabelecimentoMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/LaudoMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/MedicoMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/start/pronto_recife/Mapper/PacienteMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.start.pronto_recife.ProntoRecifeApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.start.pronto_recife.ProntoRecifeApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/start/pronto_recife/ProntoRecifeApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Controllers/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/DTOs/DTOPaciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/PacienteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/PacienteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Service/PacienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="56399176-72ca-4140-ad9f-977b44242b71" name="Changes by Rede14.2" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -105,7 +73,7 @@
     &quot;Spring Boot.ProntoRecifeApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Estabelecimento&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/matheus-linux/Documentos/ProntoMed/Back-End-Pronto-Recife&quot;,
@@ -126,7 +94,7 @@
       <recent name="com.start.pronto_recife.Service" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.pronto-recife [clean]">
+  <component name="RunManager" selected="Spring Boot.ProntoRecifeApplication">
     <configuration name="pronto-recife [clean]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -189,19 +157,33 @@
       <workItem from="1731010352396" duration="11505000" />
       <workItem from="1731173674118" duration="9368000" />
       <workItem from="1731418819746" duration="5452000" />
-      <workItem from="1731444370528" duration="741000" />
+      <workItem from="1731444370528" duration="3923000" />
+      <workItem from="1731596037647" duration="15642000" />
     </task>
+    <task id="LOCAL-00001" summary="CRUD completo do Estabelecimento">
+      <option name="closed" value="true" />
+      <created>1731445264429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731445264429</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CRUD completo do Estabelecimento" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD completo do Estabelecimento" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/com/start/pronto_recife/Models/PacienteModel.java</url>
-          <line>29</line>
+          <line>31</line>
           <properties field="cep" class="com.start.pronto_recife.Models.PacienteModel" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>

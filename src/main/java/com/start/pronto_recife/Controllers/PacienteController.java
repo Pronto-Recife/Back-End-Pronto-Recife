@@ -17,9 +17,18 @@ public class PacienteController {
 
     private final PacienteService pacienteService;
 
-    @PostMapping("/save")
+    @PostMapping("/register")
     public ResponseEntity<DTOPaciente> savePaciente(@RequestBody DTOPaciente dtoPaciente){
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteService.createPaciente(dtoPaciente));
+    }
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String cpf, @RequestParam String senha){
+        try {
+            String mensagem = pacienteService.loginPaciente(cpf, senha);
+            return ResponseEntity.ok(mensagem);
+        } catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login Falhou: " + e.getMessage());
+        }
     }
     @GetMapping("/all")
     public ResponseEntity<List<DTOPaciente>> getAllPacients(){

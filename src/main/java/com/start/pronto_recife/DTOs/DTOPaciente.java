@@ -17,6 +17,8 @@ public record DTOPaciente(UUID id,
                           String genero,
                           @NotBlank @Email
                           String email,
+                          @NotBlank @NotNull
+                          String senha,
                           @NotNull @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                           String telefone,
                           @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
