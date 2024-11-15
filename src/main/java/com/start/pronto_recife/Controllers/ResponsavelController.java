@@ -15,20 +15,32 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ResponsavelController {
     private final ResponsavelService responsavelService;
+
     // GET controller
     @GetMapping("/responsavel")
-    public ResponseEntity<List<DTOResponsavel>> getAllResponsavels(){
+    public ResponseEntity<List<DTOResponsavel>> getAllResponsavels() {
         return ResponseEntity.status(HttpStatus.OK).body(responsavelService.findAll());
     }
+
     // PUT controller
     @PutMapping("/responsavel/{id}")
-    public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable UUID id, @RequestBody @Valid DTOResponsavel dtoResponsavel){
+    public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable UUID id, @RequestBody @Valid DTOResponsavel dtoResponsavel) {
         DTOResponsavel responsavel = responsavelService.updateResponsavel(id, dtoResponsavel);
         return ResponseEntity.status(HttpStatus.OK).body(responsavel);
     }
+
     // POST controller
     @PostMapping("/responsavel")
-    public ResponseEntity<DTOResponsavel> saveResponsavel(@RequestBody DTOResponsavel dtoResponsavel){
-        return ResponseEntity.status(HttpStatus.CREATED).body(responsavelService.createResponsavel(dtoResponsavel));}
+    public ResponseEntity<DTOResponsavel> saveResponsavel(@RequestBody DTOResponsavel dtoResponsavel) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(responsavelService.createResponsavel(dtoResponsavel));
+    }
+
+    @DeleteMapping("/delresponsavel/{id}")
+    public ResponseEntity<Void> deleteResponsavel(@PathVariable UUID id) {
+        responsavelService.deleteResponsavel(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+
+    }
 }
+
 
