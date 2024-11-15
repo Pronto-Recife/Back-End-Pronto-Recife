@@ -16,7 +16,6 @@ import java.util.UUID;
 @Getter @Setter
 public class ResponsavelModel {
     @Id
-    @Pattern(regexp = "^[a-f0-9-]{36}$", message = "Valor deve ser um UUID válido")
     @GeneratedValue (strategy = GenerationType.UUID)
     @JdbcTypeCode(Types.VARCHAR)
     private UUID id;
