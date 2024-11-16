@@ -10,25 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController("estabelecimento")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("estabelecimento")
 public class EstabelecimentoController {
     private final EstabelecimentoService estabelecimentoService;
 
-    @PostMapping("/estabelecimento/register")
+    @PostMapping("/register")
     public ResponseEntity<DTOEstabelecimento> registerEstabelecimento(@RequestBody DTOEstabelecimento dtoEstabelecimento){
         return ResponseEntity.status(HttpStatus.CREATED).body(estabelecimentoService.createEstabelecimento(dtoEstabelecimento));
     }
-    @GetMapping("/estabelecimento/all")
+    @GetMapping("/all")
     public ResponseEntity<List<DTOEstabelecimento>> getAllEstabelecimentos(){
         return ResponseEntity.status(HttpStatus.OK).body(estabelecimentoService.findAll());
     }
-    @GetMapping("estabelecimento/find/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<DTOEstabelecimento> getEstabelecimento(@PathVariable(value = "id")UUID id){
         DTOEstabelecimento estabelecimento = estabelecimentoService.findById(id);
         return ResponseEntity.ok().body(estabelecimento);
     }
-    @DeleteMapping("/estabelecimento/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteEstabelecimento(@PathVariable UUID id){
         estabelecimentoService.deleteEstabelecimento(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
