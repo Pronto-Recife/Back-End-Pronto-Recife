@@ -4,13 +4,12 @@ import com.start.pronto_recife.DTOs.DTOHistorico;
 import com.start.pronto_recife.Models.HistoricoModel;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-16T20:08:25-0300",
+    date = "2024-11-17T20:23:04-0300",
     comments = "version: 1.6.2, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Component
@@ -24,9 +23,9 @@ public class HistoricoMapperImpl implements HistoricoMapper {
 
         HistoricoModel historicoModel = new HistoricoModel();
 
-        historicoModel.setId( dtoHistorico.id() );
         historicoModel.setCirurgias_anteriores( dtoHistorico.cirurgias_anteriores() );
         historicoModel.setCondicoes_gerais( dtoHistorico.condicoes_gerais() );
+        historicoModel.setPaciente_id( dtoHistorico.paciente_id() );
 
         return historicoModel;
     }
@@ -37,15 +36,15 @@ public class HistoricoMapperImpl implements HistoricoMapper {
             return null;
         }
 
-        UUID id = null;
         String cirurgias_anteriores = null;
         String condicoes_gerais = null;
+        String paciente_id = null;
 
-        id = historicoModel.getId();
         cirurgias_anteriores = historicoModel.getCirurgias_anteriores();
         condicoes_gerais = historicoModel.getCondicoes_gerais();
+        paciente_id = historicoModel.getPaciente_id();
 
-        DTOHistorico dTOHistorico = new DTOHistorico( id, cirurgias_anteriores, condicoes_gerais );
+        DTOHistorico dTOHistorico = new DTOHistorico( cirurgias_anteriores, condicoes_gerais, paciente_id );
 
         return dTOHistorico;
     }
