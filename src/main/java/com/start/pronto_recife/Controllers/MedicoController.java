@@ -20,26 +20,33 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/medico")
 public class MedicoController {
     private final MedicoMapper medicoMapper;
     private final MedicoService medicoService;
     private final MedicoRepository medicoRepository;
 
-    @PostMapping("/medico")
+    @PostMapping()
     public ResponseEntity<DTOMedico> saveMedico(@RequestBody @Valid DTOMedico dtoMedico){
         return ResponseEntity.status(HttpStatus.CREATED).body(medicoService.createMedico(dtoMedico));
     }
 
-    @GetMapping("/medico")
+    @GetMapping()
     public ResponseEntity<List<DTOMedico>> getAllMedicos(){
         return ResponseEntity.status(HttpStatus.OK).body(medicoService.findAll());
     }
 
 
-    @GetMapping("/medico/{CRM}")
+    @GetMapping("/{CRM}")
     public ResponseEntity<DTOMedico> getMedico(@PathVariable(value="CRM") String CRM){
         DTOMedico medico = medicoService.findByCRM(CRM);
         return ResponseEntity.ok().body(medico);
+    }
+
+    @PutMapping("{CRM}")
+    public ResponseEntity<DTOMedico> updateMedico(@PathVariable String CRM, @RequestBody @Valid DTOMedico dtoMedico) {
+        DTOMedico medico = medicoService.updateMedico(CRM, dtoMedico);
+        return ResponseEntity.status(HttpStatus.OK).body(medico);
     }
 
 //    @PutMapping("medico/{id}")

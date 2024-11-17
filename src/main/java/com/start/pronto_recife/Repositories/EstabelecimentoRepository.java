@@ -9,6 +9,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface EstabelecimentoRepository extends JpaRepository<EstabelecimentoModel, UUID> {
+public interface EstabelecimentoRepository extends JpaRepository<EstabelecimentoModel, String> {
     Optional<EstabelecimentoModel> findByEmail(@NotBlank String email);
 }

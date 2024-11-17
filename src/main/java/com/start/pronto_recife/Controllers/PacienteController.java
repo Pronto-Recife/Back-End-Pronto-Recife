@@ -40,12 +40,12 @@ public class PacienteController {
         return ResponseEntity.ok().body(paciente);
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<DTOPaciente> updatePaciente(@PathVariable UUID id, @RequestBody @Valid DTOPaciente dtoPaciente) {
+    public ResponseEntity<DTOPaciente> updatePaciente(@PathVariable String id, @RequestBody @Valid DTOPaciente dtoPaciente) {
         DTOPaciente paciente = pacienteService.updatePaciente(id, dtoPaciente);
         return ResponseEntity.status(HttpStatus.OK).body(paciente);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deletePaciente(@PathVariable UUID id){
+    public ResponseEntity<Void> deletePaciente(@PathVariable String id){
         pacienteService.deletePaciente(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

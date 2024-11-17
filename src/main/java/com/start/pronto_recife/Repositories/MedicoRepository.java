@@ -8,6 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface MedicoRepository extends JpaRepository<MedicoModel, UUID>  {
+public interface MedicoRepository extends JpaRepository<MedicoModel, String>  {
     Optional<MedicoModel> findByCRM(String CRM);
 }

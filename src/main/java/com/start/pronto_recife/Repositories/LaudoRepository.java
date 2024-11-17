@@ -8,6 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface LaudoRepository extends JpaRepository <LaudoModel, UUID> {
-    Optional<LaudoModel> findById(UUID id);
+public interface LaudoRepository extends JpaRepository <LaudoModel, String> {
+    Optional<LaudoModel> findById(String id);
 }

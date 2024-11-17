@@ -15,8 +15,13 @@ import java.util.UUID;
 @Getter @Setter
 public class LaudoModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
+    private String id;
     private String descricao;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

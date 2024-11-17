@@ -6,10 +6,12 @@ import com.start.pronto_recife.Mapper.MedicoMapper;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.MedicoRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +25,17 @@ public class MedicoService {
         });
         MedicoModel medicoModel = medicoRepository.save(medicoMapper.toModel(dtoMedico));
         return medicoMapper.toDTO(medicoModel);
+    }
+
+    public DTOMedico updateMedico(String CRM, DTOMedico dtoMedico){
+        MedicoModel target = medicoRepository.findByCRM(CRM).orElseThrow(()->new RuntimeException("CRM não encontrado no banco"));
+        target.setCRM(dtoMedico.CRM());
+        target.setNome_completo(dtoMedico.nome_completo());
+        target.setEspecialidade(dtoMedico.especialidade());
+        target.setTelefone(dtoMedico.telefone());
+        target.setEmail(dtoMedico.email());
+
+        return medicoMapper.toDTO(medicoRepository.save(target));
     }
 
     public List<DTOMedico> findAll(){

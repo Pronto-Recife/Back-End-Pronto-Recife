@@ -27,7 +27,7 @@ public class ConsultaService {
         return consultaMapper.toDTO(savedConsulta);
 
     }
-    public void deleteConsulta(UUID id){
+    public void deleteConsulta(String id){
         if (!consultaRepository.existsById(id)) {
             throw new RuntimeException("Consulta não encontrada.");
         }
@@ -39,12 +39,12 @@ public class ConsultaService {
         return consultaMapper.listModeltoListDTO(consultas);
 
     }
-    public DTOConsulta getConsultaById(UUID id){
+    public DTOConsulta getConsultaById(String id){
         ConsultaModel product = consultaRepository.findById(id).orElseThrow(()
                 -> new RuntimeException("Produto não encontrado."));
         return consultaMapper.toDTO(product);
     }
-    public DTOConsulta updateConsultaByid(UUID id, DTOConsulta dtoconsulta){
+    public DTOConsulta updateConsultaByid(String id, DTOConsulta dtoconsulta){
         ConsultaModel existingConsulta = consultaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Id não encontrado!"));
         ConsultaModel updatedModel = consultaMapper.toModel(dtoconsulta);

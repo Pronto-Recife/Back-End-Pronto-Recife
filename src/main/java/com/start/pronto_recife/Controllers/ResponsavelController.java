@@ -24,7 +24,7 @@ public class ResponsavelController {
 
     // PUT controller
     @PutMapping("/responsavel/{id}")
-    public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable UUID id, @RequestBody @Valid DTOResponsavel dtoResponsavel) {
+    public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable String id, @RequestBody @Valid DTOResponsavel dtoResponsavel) {
         DTOResponsavel responsavel = responsavelService.updateResponsavel(id, dtoResponsavel);
         return ResponseEntity.status(HttpStatus.OK).body(responsavel);
     }
@@ -36,7 +36,7 @@ public class ResponsavelController {
     }
 
     @DeleteMapping("/delresponsavel/{id}")
-    public ResponseEntity<Void> deleteResponsavel(@PathVariable UUID id) {
+    public ResponseEntity<Void> deleteResponsavel(@PathVariable String id) {
         responsavelService.deleteResponsavel(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 

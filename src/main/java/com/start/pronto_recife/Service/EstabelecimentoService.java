@@ -30,12 +30,12 @@ public class EstabelecimentoService {
         List<EstabelecimentoModel> estabelecimentos = estabelecimentoRepository.findAll();
         return estabelecimentoMapper.listEntitytoListDTO(estabelecimentos);
     }
-    public DTOEstabelecimento findById(UUID id){
+    public DTOEstabelecimento findById(String id){
         EstabelecimentoModel estabelecimentoExists = estabelecimentoRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Estabelecimento não existe!"));
         return estabelecimentoMapper.toDTO(estabelecimentoExists);
     }
-    public void deleteEstabelecimento(UUID id){
+    public void deleteEstabelecimento(String id){
         EstabelecimentoModel estabelecimentoExists = estabelecimentoRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Estabelecimento não existe!"));
         estabelecimentoRepository.delete(estabelecimentoExists);

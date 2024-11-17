@@ -15,12 +15,18 @@ import java.util.UUID;
 @Setter
 public class AgendaModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     private LocalDate data;
     private LocalTime time;
     //private MedicoModel medicoModel;
     //private ArrayList<PacienteModel> pacienteModels;
     private String status;
     private String observacoes;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

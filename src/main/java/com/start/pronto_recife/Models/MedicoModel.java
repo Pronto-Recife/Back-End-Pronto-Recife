@@ -13,12 +13,19 @@ import java.util.UUID;
 public class MedicoModel{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     @Column(name = "CRM", unique = true)
     private String CRM;
     private String nome_completo;
     private String especialidade;
     private String telefone;
     private String email;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }
+

@@ -17,8 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class PacienteModel{
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     @Column(name = "cpf", unique = true, length = 14)
     private String CPF;
     private String nome_completo;
@@ -33,4 +32,11 @@ public class PacienteModel{
     private String endereco;
     @Column(name = "responsavel_id", length = 16)
     private UUID responsavel_id;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

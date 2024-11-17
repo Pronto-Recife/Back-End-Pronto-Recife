@@ -27,7 +27,7 @@ public class  ResponsavelService {
     }
 
     // Service update responsavel
-    public DTOResponsavel updateResponsavel(UUID id, DTOResponsavel dtoResponsavel) {
+    public DTOResponsavel updateResponsavel(String id, DTOResponsavel dtoResponsavel) {
         ResponsavelModel existingResponsavel = responsavelRepository.findById(id).orElseThrow(() -> new RuntimeException("Id do responsável não encontrado."));
 
         ResponsavelModel updatedResponsavel = responsavelMapper.toModel(dtoResponsavel);
@@ -42,7 +42,7 @@ public class  ResponsavelService {
         return responsavelMapper.toDTO(responsavelModel);
     }
 
-    public void deleteResponsavel(UUID id) {
+    public void deleteResponsavel(String id) {
         ResponsavelModel responsavelExists = responsavelRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Usuario não existe!"));
         responsavelRepository.delete(responsavelExists);

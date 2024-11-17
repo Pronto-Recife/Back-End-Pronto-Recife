@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface PacienteRepository extends JpaRepository<PacienteModel, UUID> {
+public interface PacienteRepository extends JpaRepository<PacienteModel, String> {
     Optional<PacienteModel> findByCPF(@NotBlank @Pattern(regexp = "\\d{11}") String CPF);
 
 }

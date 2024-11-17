@@ -39,7 +39,7 @@ public class PacienteService {
 
         return "Login Bem-Sucedido!";
     }
-    public DTOPaciente updatePaciente(UUID id, DTOPaciente dtoPaciente){
+    public DTOPaciente updatePaciente(String id, DTOPaciente dtoPaciente){
         PacienteModel existingPaciente = pacienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Id não encontrado!"));
         PacienteModel updatedModel = pacienteMapper.toModel(dtoPaciente);
@@ -56,7 +56,7 @@ public class PacienteService {
                 new RuntimeException("CPF Não Existe!!"));
         return pacienteMapper.toDTO(pacientExists);
     }
-    public void deletePaciente(UUID id){
+    public void deletePaciente(String id){
         PacienteModel pacienteExists = pacienteRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Usuario não existe!"));
         pacienteRepository.delete(pacienteExists);

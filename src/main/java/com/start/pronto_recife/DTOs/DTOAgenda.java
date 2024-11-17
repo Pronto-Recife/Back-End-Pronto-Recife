@@ -11,7 +11,7 @@ import java.util.List;
 public record DTOAgenda(
 
         @NotNull
-        UUID id,
+        String id,
 
         @NotNull
         LocalDate data,

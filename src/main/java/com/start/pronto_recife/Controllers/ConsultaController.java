@@ -25,7 +25,7 @@ public class ConsultaController {
     }
 
     @DeleteMapping("/consulta/{id}")
-    public ResponseEntity<Void> deleteConsultaById(@PathVariable UUID id) {
+    public ResponseEntity<Void> deleteConsultaById(@PathVariable String id) {
         consultaService.deleteConsulta(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
@@ -37,13 +37,13 @@ public class ConsultaController {
     }
 
     @GetMapping("/consulta/{id}")
-    public ResponseEntity<DTOConsulta> getPaciente(@PathVariable UUID id) {
+    public ResponseEntity<DTOConsulta> getPaciente(@PathVariable String id) {
         DTOConsulta consulta = consultaService.getConsultaById(id);
         return ResponseEntity.ok().body(consulta);
 
     }
     @PutMapping("/consulta/{id}")
-    public ResponseEntity<DTOConsulta> updateConsulta(@PathVariable UUID id, @RequestBody @Valid DTOConsulta dtoconsulta) {
+    public ResponseEntity<DTOConsulta> updateConsulta(@PathVariable String id, @RequestBody @Valid DTOConsulta dtoconsulta) {
         DTOConsulta consulta = consultaService.updateConsultaByid(id, dtoconsulta);
         return ResponseEntity.status(HttpStatus.OK).body(consulta);
     }

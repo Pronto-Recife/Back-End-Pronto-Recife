@@ -17,16 +17,17 @@ import java.util.UUID;
 public class ConsultaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     private LocalDate data_consulta;
     private String tratamentos_prescritos;
     private String instrucoes_recomendacoes;
     private String sintomas;
     private String historico_familiar;
-//    private UUID paciente_id;
-//    private UUID medico_id;
 
-
-
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

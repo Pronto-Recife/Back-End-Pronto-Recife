@@ -24,7 +24,7 @@ public class LaudoController {
     }
     // PUT controller
     @PutMapping("/laudo/{id}")
-    public ResponseEntity<DTOLaudo> updateLaudo(@PathVariable UUID id, @RequestBody @Valid DTOLaudo dtoLaudo){
+    public ResponseEntity<DTOLaudo> updateLaudo(@PathVariable String id, @RequestBody @Valid DTOLaudo dtoLaudo){
         DTOLaudo laudo = laudoService.updateLaudo(id, dtoLaudo);
         return ResponseEntity.status(HttpStatus.OK).body(laudo);
     }

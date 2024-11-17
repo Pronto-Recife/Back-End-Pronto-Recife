@@ -16,9 +16,7 @@ import java.util.UUID;
 @Getter @Setter
 public class ResponsavelModel {
     @Id
-    @GeneratedValue (strategy = GenerationType.UUID)
-    @JdbcTypeCode(Types.VARCHAR)
-    private UUID id;
+    private String id;
     private String nomeCompleto;
     private String grauParentesco;
     @Column(name = "dataNascimento")
@@ -26,4 +24,11 @@ public class ResponsavelModel {
     private String telefone;
     private String email;
     private String genero;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

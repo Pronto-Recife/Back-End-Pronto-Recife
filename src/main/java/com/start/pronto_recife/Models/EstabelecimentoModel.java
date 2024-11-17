@@ -16,11 +16,17 @@ import java.util.UUID;
 @NoArgsConstructor
 public class EstabelecimentoModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     private String nome;
     private String endereco;
     private String telefone;
     @Column(name = "email", unique = true)
     private String email;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

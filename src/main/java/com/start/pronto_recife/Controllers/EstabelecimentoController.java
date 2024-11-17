@@ -25,12 +25,12 @@ public class EstabelecimentoController {
         return ResponseEntity.status(HttpStatus.OK).body(estabelecimentoService.findAll());
     }
     @GetMapping("/find/{id}")
-    public ResponseEntity<DTOEstabelecimento> getEstabelecimento(@PathVariable(value = "id")UUID id){
+    public ResponseEntity<DTOEstabelecimento> getEstabelecimento(@PathVariable(value = "id")String id){
         DTOEstabelecimento estabelecimento = estabelecimentoService.findById(id);
         return ResponseEntity.ok().body(estabelecimento);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteEstabelecimento(@PathVariable UUID id){
+    public ResponseEntity<Void> deleteEstabelecimento(@PathVariable String id){
         estabelecimentoService.deleteEstabelecimento(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

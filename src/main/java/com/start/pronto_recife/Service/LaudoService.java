@@ -21,7 +21,7 @@ public class LaudoService {
         return laudoMapper.listEntitytoListDTO(laudos);
     }
    // Service update laudo
-    public DTOLaudo updateLaudo(UUID id, DTOLaudo dtoLaudo){
+    public DTOLaudo updateLaudo(String id, DTOLaudo dtoLaudo){
         LaudoModel existingLaudo = laudoRepository.findById(id).orElseThrow(() -> new RuntimeException("Id do Laudo não encontrado."));
 
         LaudoModel updatedLaudo = laudoMapper.toModel(dtoLaudo);
