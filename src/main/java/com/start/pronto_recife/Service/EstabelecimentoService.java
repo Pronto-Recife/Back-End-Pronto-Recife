@@ -41,3 +41,4 @@ public class EstabelecimentoService {
         estabelecimentoRepository.delete(estabelecimentoExists);
     }
 }
+
