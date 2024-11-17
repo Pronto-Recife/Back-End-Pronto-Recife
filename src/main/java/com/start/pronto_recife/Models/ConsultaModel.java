@@ -23,6 +23,9 @@ public class ConsultaModel {
     private String instrucoes_recomendacoes;
     private String sintomas;
     private String historico_familiar;
+    private String paciente_id;
+    private String medico_id;
+    private String laudos_id;
 
     @PrePersist
     public void prePersist() {

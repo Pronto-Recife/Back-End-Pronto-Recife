@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Pattern;
 
 import java.util.UUID;
 
-public record DTOEstabelecimento(UUID id,
+public record DTOEstabelecimento(
                                  @NotNull @NotBlank
                                  String nome,
                                  @NotNull @NotBlank
