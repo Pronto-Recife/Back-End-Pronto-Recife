@@ -1,12 +1,10 @@
 package com.start.pronto_recife.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.JdbcTypeCode;
 
-import java.sql.Types;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -17,9 +15,12 @@ import java.util.UUID;
 public class ResponsavelModel {
     @Id
     private String id;
+    @Column(name = "nome_completo")
     private String nomeCompleto;
+    @Column(name = "grau_parentesco")
     private String grauParentesco;
-    @Column(name = "dataNascimento")
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
     private String telefone;
     private String email;

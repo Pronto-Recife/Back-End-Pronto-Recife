@@ -25,8 +25,8 @@ public class ResponsavelController {
     // PUT controller
     @PutMapping("/responsavel/{id}")
     public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable String id, @RequestBody @Valid DTOResponsavel dtoResponsavel) {
-        DTOResponsavel responsavel = responsavelService.updateResponsavel(id, dtoResponsavel);
-        return ResponseEntity.status(HttpStatus.OK).body(responsavel);
+        DTOResponsavel updateresponsavel = responsavelService.updateResponsavel(id, dtoResponsavel);
+        return ResponseEntity.status(HttpStatus.OK).body(updateresponsavel);
     }
 
     // POST controller
