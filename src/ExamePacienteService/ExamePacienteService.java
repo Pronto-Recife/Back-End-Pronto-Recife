@@ -1,58 +1,62 @@
-package com.start.pronto_recife.ExamePacienteService;
+package com.start.pronto_recife.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.start.pronto_recife.DTOs.ExamePacienteDTO;
+import com.start.pronto_recife.Mapper.ExamePacienteMapper;
+import com.start.pronto_recife.Models.ExamePacientModel;
+import com.start.pronto_recife.Repositories.ExamePacienteRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
-import com.start.pronto_recife.ExamePacienteDTO.ExamePacienteDTO;
-import com.start.pronto_recife.ExamePacienteMapper.ExamePacienteMapper;
-import com.start.pronto_recife.ExamePacienteRepository.ExamePacienteRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ExamePacienteService<Exame> {
+@RequiredArgsConstructor
+public class ExamePacienteService {
 
-    @Autowired
-    private ExamePacienteRepository exameRepository;
+    private final ExamePacienteRepository exameRepository;
+    private final ExamePacienteMapper examemapper;
 
-    @Autowired
-    private ExamePacienteMapper mapper;
-
+    
     public ExamePacienteDTO createExame(ExamePacienteDTO dto) {
-        Exame model = mapper.toModel(dto);
-        Exame savedExame = exameRepository.save(model);
-        return mapper.toDTO(savedExame);
+        if(exameRepository.findById(dto.id()).isPresent()){
+            throw new RuntimeException("Exame já existe!");
+        }
+        ExamePacientModel model = examemapper.toModel(dto);
+        model= exameRepository.save(model);
+        return examemapper.toDTO(model);
     }
 
+    
     public ExamePacienteDTO getExameById(UUID id) {
-        Optional<Exame> exame = exameRepository.findById(id);
-        return exame.map(mapper::toDTO).orElse(null);
+        ExamePacientModel model  = exameRepository.findById(id).orElseThrow(()
+                -> new RuntimeException("Exame não encontrado."));
+        return examemapper.toDTO(model);
     }
-    
+
+   
     public List<ExamePacienteDTO> getAllExames() {
-        List<ExamePacienteRepository> exames = exameRepository.findAll();
-        return exames.stream().map(mapper::toDTO).toList();
+        List<ExamePacientModel> exames = exameRepository.findAll();
+        return examemapper.listEntitytoListDTO(exames);
     }
-    
+
+  
     public ExamePacienteDTO updateExame(UUID id, ExamePacienteDTO dto) {
+        ExamePacientModel existingExame = exameRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Exame não encontrado!"));
+        ExamePacientModel updatModel = examemapper.toModel(dto);
+        updatModel.setId(existingExame.getId());
+        exameRepository.save(updatModel);
+        return examemapper.toDTO(updatModel);
+    }
+
+   
+    public void  deleteExame(UUID id) {
         if (!exameRepository.existsById(id)) {
-            return null; 
+            throw new RuntimeException("Exame não encontrado.");
         }
-        Exame model = mapper.toModel(dto);
-        model.setId(id);
-        ExamePacienteRepository updatedExame = ExamePacienteRepository.save(model);
-        return mapper.toDTO(updatedExame);
+         exameRepository.deleteById(id);
     }
 
-    public boolean deleteExame(UUID id) {
-        if (!ExamePacienteRepository.existsById(id)) {
-            return false;
-        }
-        exameRepository.deleteById(id);
-        return true;
-    }
 }
-
-
