@@ -13,7 +13,8 @@ CREATE TABLE `medico` (
   id CHAR(36) DEFAULT (UUID()),
   crm VARCHAR(15) NOT NULL,
   especialidade VARCHAR(255) NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
   nome_completo VARCHAR(100) NOT NULL,
   telefone VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`),
@@ -22,7 +23,8 @@ CREATE TABLE `medico` (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Responsável
-CREATE TABLE `responsavel` (
+-- Tabela Responsável
+CREATE TABLE IF NOT EXISTS `responsavel` (
   id CHAR(36) DEFAULT (UUID()),
   nome_completo VARCHAR(100) NOT NULL,
   grau_parentesco VARCHAR(45) NOT NULL,
@@ -30,12 +32,14 @@ CREATE TABLE `responsavel` (
   genero VARCHAR(10) NOT NULL,
   telefone VARCHAR(15) NOT NULL,
   email VARCHAR(50),
+  cpf VARCHAR(14) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  UNIQUE INDEX `idx_cpf` (`cpf`) -- Índice adicionado para o campo cpf
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Paciente
-CREATE TABLE `paciente` (
+CREATE TABLE IF NOT EXISTS `paciente` (
   id CHAR(36) DEFAULT (UUID()),
   nome_completo VARCHAR(100) NOT NULL,
   cpf VARCHAR(14) NOT NULL,
@@ -47,37 +51,12 @@ CREATE TABLE `paciente` (
   contato_representante VARCHAR(15),
   cep VARCHAR(9) NOT NULL,
   endereco VARCHAR(250) NOT NULL,
-  responsavel_id CHAR(36),
+  responsavel_cpf VARCHAR(14),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   CONSTRAINT `fk_paciente_responsavel`
-    FOREIGN KEY (`responsavel_id`)
-    REFERENCES `responsavel` (`id`)
-    ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
--- Tabela Estabelecimento
-CREATE TABLE `Estabelecimento` (
-  id CHAR(36) DEFAULT (UUID()),
-  nome VARCHAR(255) NOT NULL,
-  endereco VARCHAR(255) NOT NULL,
-  telefone VARCHAR(15) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  id_medico CHAR(36),
-  id_paciente CHAR(36),
-  id_consulta CHAR(36),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_estabelecimento_consulta`
-    FOREIGN KEY (`id_consulta`)
-    REFERENCES `consulta` (`id`)
-    ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_estabelecimento_medico`
-    FOREIGN KEY (`id_medico`)
-    REFERENCES `medico` (`id`)
-    ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_estabelecimento_paciente`
-    FOREIGN KEY (`id_paciente`)
-    REFERENCES `paciente` (`id`)
+    FOREIGN KEY (`responsavel_cpf`)
+    REFERENCES `responsavel` (`cpf`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
@@ -104,6 +83,32 @@ CREATE TABLE `consulta` (
   CONSTRAINT `fk_consulta_laudos`
     FOREIGN KEY (`laudos_id`)
     REFERENCES `laudos` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+-- Tabela Estabelecimento
+CREATE TABLE `Estabelecimento` (
+  id CHAR(36) DEFAULT (UUID()),
+  nome VARCHAR(255) NOT NULL,
+  endereco VARCHAR(255) NOT NULL,
+  telefone VARCHAR(15) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  id_medico CHAR(36),
+  id_paciente CHAR(36),
+  id_consulta CHAR(36),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_estabelecimento_consulta`
+    FOREIGN KEY (`id_consulta`)
+    REFERENCES `consulta` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_estabelecimento_medico`
+    FOREIGN KEY (`id_medico`)
+    REFERENCES `medico` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_estabelecimento_paciente`
+    FOREIGN KEY (`id_paciente`)
+    REFERENCES `paciente` (`id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
@@ -138,8 +143,3 @@ CREATE TABLE IF NOT EXISTS `historico_medico` (
     REFERENCES `paciente` (`id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-
--- Configurações Finais
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

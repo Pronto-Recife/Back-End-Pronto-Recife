@@ -15,5 +15,7 @@ public record DTOEstabelecimento(UUID id,
                                  @NotNull @NotBlank @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                                  String telefone,
                                  @NotBlank @Email
-                                 String email) {
+                                 String email,
+                                 @NotBlank @NotNull String senha
+) {
 }

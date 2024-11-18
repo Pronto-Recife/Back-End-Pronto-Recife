@@ -11,7 +11,7 @@ public record DTOPaciente(UUID id,
                           String CPF,
                           @NotNull @NotBlank
                           String nome_completo,
-                          @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+                          @NotNull
                           LocalDate data_nascimento,
                           @NotNull @NotBlank
                           String genero,

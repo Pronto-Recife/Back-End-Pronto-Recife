@@ -20,6 +20,8 @@ public class MedicoModel{
     private String especialidade;
     private String telefone;
     private String email;
+    @Column(name = "senha")
+    private String senha;
 
     @PrePersist
     public void prePersist() {

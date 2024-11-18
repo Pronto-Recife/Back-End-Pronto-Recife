@@ -1,4 +1,5 @@
 package com.start.pronto_recife.Models;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,8 @@ public class ConsultaModel {
 
     @Id
     private String id;
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @Column(name = "data_consulta")
     private LocalDate data_consulta;
     private String tratamentos_prescritos;
     private String instrucoes_recomendacoes;

@@ -1,5 +1,6 @@
 package com.start.pronto_recife.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class PacienteModel{
     @Column(name = "cpf", unique = true, length = 14)
     private String CPF;
     private String nome_completo;
+    @Column(name = "data_nascimento")
     private LocalDate data_nascimento;
     private String genero;
     @Column(name = "email", unique = true)

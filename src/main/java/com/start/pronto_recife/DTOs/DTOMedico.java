@@ -19,7 +19,8 @@ public record DTOMedico (@NotBlank @NotNull @Pattern(regexp = "\\d{15}")
                          String telefone,
 
                          @Email
-                         String email) {
+                         String email,
+                         @NotNull @NotBlank String senha) {
 
 
 }
