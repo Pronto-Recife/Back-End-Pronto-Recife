@@ -37,9 +37,14 @@ public class  ResponsavelService {
     }
 
     // Service create new responsavel
+    
     public DTOResponsavel createResponsavel(DTOResponsavel dtoResponsavel) {
-        ResponsavelModel responsavelModel = responsavelRepository.save(responsavelMapper.toModel(dtoResponsavel));
-        return responsavelMapper.toDTO(responsavelModel);
+        if (responsavelRepository.findByCpf(dtoResponsavel.cpf()).isPresent()) {
+            throw new RuntimeException("CPF Já Existe!");
+        }
+        ResponsavelModel newResponsavel = responsavelMapper.toModel(dtoResponsavel);
+        responsavelRepository.save(newResponsavel);
+        return responsavelMapper.toDTO(newResponsavel);
     }
 
     public void deleteResponsavel(String id) {

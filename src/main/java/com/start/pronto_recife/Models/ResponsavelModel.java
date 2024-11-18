@@ -25,6 +25,9 @@ public class ResponsavelModel {
     private String telefone;
     private String email;
     private String genero;
+    @Column(name = "cpf", unique = true, length = 14, nullable = false)
+    private String cpf;
+
 
     @PrePersist
     public void prePersist() {

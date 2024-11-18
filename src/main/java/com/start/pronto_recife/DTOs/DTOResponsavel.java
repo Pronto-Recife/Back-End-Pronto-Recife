@@ -12,14 +12,13 @@ import java.time.LocalDate;
 public record DTOResponsavel(
                             @NotBlank @NotNull String nomeCompleto,
                              @NotBlank String grauParentesco,
-                             @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-                             LocalDate dataNascimento,
-                             @NotBlank @NotNull @Pattern (regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
+                             @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+                            LocalDate dataNascimento,
+                            @NotBlank @NotNull @Pattern (regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                              String telefone,
                              @Email String email,
-                             @NotBlank String genero) {
-//    public Object id()
-//    {
-//        return null;
-//    }
+                             @NotBlank String genero,
+                            @NotNull @NotBlank
+                            String cpf) {
+
 }

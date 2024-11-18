@@ -17,9 +17,10 @@ public record DTOMedico (@NotBlank @NotNull @Pattern(regexp = "\\d{15}")
 
                          @NotBlank @NotNull @Pattern(regexp = "\\(\\d{2}\\)\\d{4,5}-\\d{4}", message = "Telefone deve estar no formato (XX)XXXXX-XXXX")
                          String telefone,
-
                          @Email
-                         String email) {
+                         String email,
+                         @NotBlank @NotNull
+                         String senha) {
 
 
 }

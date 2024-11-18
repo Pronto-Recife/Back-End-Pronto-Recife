@@ -7,6 +7,7 @@ import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.EstabelecimentoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +18,15 @@ import java.util.UUID;
 public class EstabelecimentoService {
     private final EstabelecimentoMapper estabelecimentoMapper;
     private final EstabelecimentoRepository estabelecimentoRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public DTOEstabelecimento createEstabelecimento(DTOEstabelecimento dtoEstabelecimento){
         if (estabelecimentoRepository.findByEmail(dtoEstabelecimento.email()).isPresent()) {
             throw new RuntimeException("Email Já Existe!");
         }
+        String criptSenha = passwordEncoder.encode(dtoEstabelecimento.senha());
         EstabelecimentoModel newEstabelecimento = estabelecimentoMapper.toModel(dtoEstabelecimento);
+        newEstabelecimento.setSenha(criptSenha);
         estabelecimentoRepository.save(newEstabelecimento);
         return estabelecimentoMapper.toDTO(newEstabelecimento);
     }

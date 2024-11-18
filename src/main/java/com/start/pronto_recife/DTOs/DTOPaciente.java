@@ -27,6 +27,6 @@ public record DTOPaciente(UUID id,
                           String cep,
                           @NotNull @NotBlank
                           String endereco,
-                          @Min(14) @Max(14)
-                          String responsavel_CPF){
+                          @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato ###.###.###-##")
+                          String responsavelCPF){
 }

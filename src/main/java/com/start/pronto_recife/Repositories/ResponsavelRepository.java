@@ -11,5 +11,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ResponsavelRepository extends JpaRepository<ResponsavelModel, String> {
-    Optional<ResponsavelModel> findById(String id);
+    Optional<ResponsavelModel> findByCpf(@NotBlank @Pattern(regexp = "\\d{11}") String cpf);
+
 }

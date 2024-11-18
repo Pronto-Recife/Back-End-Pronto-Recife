@@ -27,7 +27,7 @@ public class MedicoController {
     private final MedicoRepository medicoRepository;
 
     @PostMapping()
-    public ResponseEntity<DTOMedico> saveMedico(@RequestBody @Valid DTOMedico dtoMedico){
+    public ResponseEntity<DTOMedico> saveMedico(@RequestBody DTOMedico dtoMedico){
         return ResponseEntity.status(HttpStatus.CREATED).body(medicoService.createMedico(dtoMedico));
     }
 

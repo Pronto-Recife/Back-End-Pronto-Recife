@@ -18,7 +18,7 @@ import java.util.UUID;
 public class PacienteModel{
     @Id
     private String id;
-    @Column(name = "cpf", unique = true, length = 14)
+    @Column(name = "cpf", unique = true, length = 14, nullable = false)
     private String CPF;
     private String nome_completo;
     private LocalDate data_nascimento;
@@ -30,8 +30,8 @@ public class PacienteModel{
     private String contato_representante;
     private String cep;
     private String endereco;
-    @Column(name = "responsavel_id", length = 16)
-    private UUID responsavel_id;
+    @Column(name = "responsavel_cpf", length = 14)
+    private String responsavelCPF;
 
     @PrePersist
     public void prePersist() {
