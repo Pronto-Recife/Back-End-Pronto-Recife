@@ -35,6 +35,6 @@ public class ExamePacientModel {
         @Column(name = "paciente_id", nullable = false)
         private UUID pacienteId;
 
-        @Column(name = "consulta_id")
-        private UUID consultaId;
+       @Column(name = "consulta_id")
+       private UUID consultaId;
     }
