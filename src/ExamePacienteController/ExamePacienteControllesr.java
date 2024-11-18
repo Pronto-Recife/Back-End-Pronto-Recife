@@ -1,4 +1,4 @@
-package com.start.pronto_recife.Controllers;
+package com.start.pronto_recife.Controller;
 
 import com.start.pronto_recife.DTOs.ExamePacienteDTO;
 import com.start.pronto_recife.Service.ExamePacienteService;
