@@ -1,17 +1,28 @@
 package com.start.pronto_recife.DTOs;
-import java.time.LocalDate;
-import java.util.UUID;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public record DTOConsulta( UUID id,
-         LocalDate data_consulta,
-         String tratamentos_prescritos,
-         String instrucoes_recomendacoes,
-         String sintomas,
-        String historico_familiar
-//        ,
-//         UUID paciente_id,
-//         UUID medico_id
+import java.time.LocalDate;
+
+
+public record DTOConsulta(
+
+        LocalDate data_consulta,
+        @NotNull @NotBlank
+        String tratamentos_prescritos,
+        @NotNull @NotBlank
+        String instrucoes_recomendacoes,
+        @NotNull @NotBlank
+        String sintomas,
+        @NotNull @NotBlank
+        String historico_familiar,
+        @NotNull @NotBlank
+        String paciente_id,
+        @NotNull @NotBlank
+        String medico_id,
+        @NotNull @NotBlank
+        String laudos_id
 )
 
-        {
+{
 }
