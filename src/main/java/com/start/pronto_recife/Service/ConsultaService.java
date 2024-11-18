@@ -41,7 +41,7 @@ public class ConsultaService {
     }
     public DTOConsulta getConsultaById(String id){
         ConsultaModel product = consultaRepository.findById(id).orElseThrow(()
-                -> new RuntimeException("Produto não encontrado."));
+                -> new RuntimeException("Consulta não encontrada."));
         return consultaMapper.toDTO(product);
     }
     public DTOConsulta updateConsultaByid(String id, DTOConsulta dtoconsulta){

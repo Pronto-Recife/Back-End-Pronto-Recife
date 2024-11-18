@@ -13,23 +13,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController("laudo")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("laudo")
 public class LaudoController {
     private final LaudoService laudoService;
     // GET controller
-    @GetMapping("/laudo")
+    @GetMapping("/findAll")
     public ResponseEntity<List<DTOLaudo>> getAllLaudos(){
         return ResponseEntity.status(HttpStatus.OK).body(laudoService.findAll());
     }
     // PUT controller
-    @PutMapping("/laudo/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<DTOLaudo> updateLaudo(@PathVariable String id, @RequestBody @Valid DTOLaudo dtoLaudo){
         DTOLaudo laudo = laudoService.updateLaudo(id, dtoLaudo);
         return ResponseEntity.status(HttpStatus.OK).body(laudo);
     }
     // POST controller
-    @PostMapping("/laudo")
+    @PostMapping("/create")
     public ResponseEntity<DTOLaudo> saveLaudo(@RequestBody DTOLaudo dtoLaudo){
         return ResponseEntity.status(HttpStatus.CREATED).body(laudoService.createLaudo(dtoLaudo));
     }

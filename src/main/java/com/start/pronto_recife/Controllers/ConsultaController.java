@@ -14,35 +14,36 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/consulta")
 public class ConsultaController {
 
     private final ConsultaService consultaService;
 
 
-    @PostMapping("/consulta")
+    @PostMapping("/create")
     public ResponseEntity<DTOConsulta> saveConsulta(@RequestBody @Valid DTOConsulta dtoconsulta) {
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaService.createConsulta(dtoconsulta));
     }
 
-    @DeleteMapping("/consulta/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteConsultaById(@PathVariable String id) {
         consultaService.deleteConsulta(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/consulta")
+    @GetMapping("/findAll")
     public ResponseEntity<List<DTOConsulta>> getallConsultas() {
         return ResponseEntity.status(HttpStatus.OK).body(consultaService.findAll());
 
     }
 
-    @GetMapping("/consulta/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<DTOConsulta> getPaciente(@PathVariable String id) {
         DTOConsulta consulta = consultaService.getConsultaById(id);
         return ResponseEntity.ok().body(consulta);
 
     }
-    @PutMapping("/consulta/{id}")
+    @PutMapping("/delete/{id}")
     public ResponseEntity<DTOConsulta> updateConsulta(@PathVariable String id, @RequestBody @Valid DTOConsulta dtoconsulta) {
         DTOConsulta consulta = consultaService.updateConsultaByid(id, dtoconsulta);
         return ResponseEntity.status(HttpStatus.OK).body(consulta);

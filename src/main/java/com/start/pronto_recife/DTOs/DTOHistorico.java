@@ -5,8 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
-public record DTOHistorico(UUID id,
-//                           String nomePaciente,
+public record DTOHistorico(String nomePaciente,
 //                           String dataConsulta,
 //                           String diagnostico,
 //                           String medicamentosPrescritos,
@@ -14,5 +13,6 @@ public record DTOHistorico(UUID id,
                            @NotNull @NotBlank
                            String cirurgias_anteriores,
                            @NotNull @NotBlank
-                           String condicoes_gerais) {
+                           String condicoes_gerais,
+                           String paciente_id) {
 }

@@ -20,7 +20,7 @@ public class HistoricoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @JdbcTypeCode(Types.VARCHAR)
-    private UUID id;
+    private String id;
 //    private String nomePaciente;
 //    private String dataConsulta;
 //    private String diagnostico;
@@ -29,4 +29,11 @@ public class HistoricoModel {
     @Column(columnDefinition = "TEXT")
     private String cirurgias_anteriores;
     private String condicoes_gerais;
+    private String paciente_id;
+    @PrePersist
+    public void prePersist() {
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+        }
+    }
 }

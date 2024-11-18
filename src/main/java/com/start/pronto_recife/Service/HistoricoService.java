@@ -21,9 +21,9 @@ public class HistoricoService {
         return historicoMapper.toListDto(listHistorico);
     }
     public DTOHistorico createHistorico(DTOHistorico dtoHistorico){
-        historicoRepository.findById(dtoHistorico.id()).ifPresent(historicoModel -> {
-            throw new RuntimeException("Historico ja existe");
-        });
+//        historicoRepository.findById(dtoHistorico.id()).ifPresent(historicoModel -> {
+//            throw new RuntimeException("Historico ja existe");
+//        });Nao precisa da verificacao porque o Model sempre cria um ID novo
         HistoricoModel historico = historicoMapper.toModel(dtoHistorico);
         HistoricoModel createdHistorico = historicoRepository.save(historico);
         return historicoMapper.toDTO(createdHistorico);

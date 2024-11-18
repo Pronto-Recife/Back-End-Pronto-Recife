@@ -6,24 +6,22 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("historico")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/historico")
 public class HistoricoController {
     private final HistoricoService historicoService;
 
-    @GetMapping("/historico")
+    @GetMapping("/findALL")
     public ResponseEntity<List<DTOHistorico>> findAll(){
         List<DTOHistorico> listHistorico = historicoService.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(listHistorico);
     }
-    @PostMapping("/historico")
+    @PostMapping("/create")
     public ResponseEntity<DTOHistorico> createHistorico(@RequestBody @Valid DTOHistorico dtoHistorico){
         DTOHistorico createdHistorico = historicoService.createHistorico(dtoHistorico);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdHistorico);

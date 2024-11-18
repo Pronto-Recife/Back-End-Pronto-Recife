@@ -1,7 +1,9 @@
 package com.start.pronto_recife.Service;
 
+import com.start.pronto_recife.DTOs.DTOConsulta;
 import com.start.pronto_recife.DTOs.DTOResponsavel;
 import com.start.pronto_recife.Mapper.ResponsavelMapper;
+import com.start.pronto_recife.Models.ConsultaModel;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.ResponsavelRepository;
@@ -46,5 +48,10 @@ public class  ResponsavelService {
         ResponsavelModel responsavelExists = responsavelRepository.findById(id).orElseThrow(() ->
                 new RuntimeException("Usuario não existe!"));
         responsavelRepository.delete(responsavelExists);
+    }
+    public DTOResponsavel getResponsavelById(String id){
+        ResponsavelModel responsavelModel = responsavelRepository.findById(id).orElseThrow(()
+                -> new RuntimeException("Produto não encontrado."));
+        return responsavelMapper.toDTO(responsavelModel);
     }
 }

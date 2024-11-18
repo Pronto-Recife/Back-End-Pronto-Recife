@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController("paciente")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("paciente")
 public class PacienteController {
 
     private final PacienteService pacienteService;
