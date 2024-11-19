@@ -35,4 +35,5 @@ public record DTOPaciente(
                           String endereco,
                           @NotNull @NotBlank @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
                           String responsavel_CPF){
+
 }
