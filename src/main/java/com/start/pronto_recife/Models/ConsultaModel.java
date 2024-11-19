@@ -19,7 +19,7 @@ public class ConsultaModel {
 
     @Id
     private String id;
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_consulta")
     private LocalDate data_consulta;
     private String tratamentos_prescritos;

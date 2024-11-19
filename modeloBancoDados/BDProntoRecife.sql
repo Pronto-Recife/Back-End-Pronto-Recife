@@ -87,8 +87,9 @@ CREATE TABLE `consulta` (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Estabelecimento
-CREATE TABLE `Estabelecimento` (
+CREATE TABLE `estabelecimento` (
   id CHAR(36) DEFAULT (UUID()),
+  cnpj VARCHAR(18) NOT NULL,
   nome VARCHAR(255) NOT NULL,
   endereco VARCHAR(255) NOT NULL,
   telefone VARCHAR(15) NOT NULL,

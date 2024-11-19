@@ -17,9 +17,10 @@ public class ResponsavelModel {
     private String id;
     @Column(name = "nome_completo")
     private String nomeCompleto;
+    private String cpf;
     @Column(name = "grau_parentesco")
     private String grauParentesco;
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
     private String telefone;

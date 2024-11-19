@@ -17,12 +17,13 @@ import java.util.UUID;
 public class EstabelecimentoModel {
     @Id
     private String id;
+    private String cnpj;
     private String nome;
+    private String senha;
     private String endereco;
     private String telefone;
     @Column(name = "email", unique = true)
     private String email;
-    private String senha;
 
     @PrePersist
     public void prePersist() {
