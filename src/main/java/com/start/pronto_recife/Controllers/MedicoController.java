@@ -59,6 +59,11 @@ public class MedicoController {
 //        BeanUtils.copyProperties(dtoMedico, medicoModel1);
 //        return ResponseEntity.status(HttpStatus.OK).body(medicoRepository.save(medicoModel1));
 //    }
+    @DeleteMapping("/delete/{CRM}")
+    public ResponseEntity<Void> deleteMedicoById(@PathVariable String CRM) {
+        medicoService.deleteMedico(CRM);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 
 }
 
