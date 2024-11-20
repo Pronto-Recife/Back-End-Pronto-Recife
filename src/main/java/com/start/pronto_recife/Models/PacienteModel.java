@@ -32,8 +32,8 @@ public class PacienteModel{
     private String contato_representante;
     private String cep;
     private String endereco;
-    @Column(name = "responsavel_id", length = 16)
-    private UUID responsavel_id;
+    @Column(name = "responsavel_CPF", length = 14)
+    private String responsavel_CPF;
 
     @PrePersist
     public void prePersist() {
