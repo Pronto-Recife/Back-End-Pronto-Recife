@@ -5,6 +5,7 @@ import com.start.pronto_recife.DTOs.DTOEstabelecimento;
 import com.start.pronto_recife.DTOs.DTOMedico;
 import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Enum.LoginFlowEnum;
+import com.start.pronto_recife.Exceptions.User.UserAuthenticationException;
 import com.start.pronto_recife.Mapper.EstabelecimentoMapper;
 import com.start.pronto_recife.Mapper.MedicoMapper;
 import com.start.pronto_recife.Mapper.PacienteMapper;
@@ -16,6 +17,7 @@ import com.start.pronto_recife.Repositories.MedicoRepository;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import io.jsonwebtoken.Jwts;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,24 +41,24 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     public String authenticate(AuthenticationRequestDTO request){
-        if (request.getFlow() == LoginFlowEnum.ESTABELECIMENTO) {
+        if (request.getFlow() == LoginFlowEnum.CNPJ) {
             EstabelecimentoModel estabelecimento = getEstabelecimento(request.getIdentificador());
             if (!passwordEncoder.matches(request.getSenha(), estabelecimento.getSenha())) {
-                throw new RuntimeException("Senha incorreta!");
+                throw new UserAuthenticationException();
             }
             return generateToken(estabelecimento.getId());
         }
-        if (request.getFlow() == LoginFlowEnum.MEDICO) {
+        if (request.getFlow() == LoginFlowEnum.CRM) {
             MedicoModel medico = getMedico(request.getIdentificador());
             if (!passwordEncoder.matches(request.getSenha(), medico.getSenha())) {
-                throw new RuntimeException("Senha incorreta!");
+                throw new UserAuthenticationException();
             }
             return generateToken(medico.getId());
         }
-        if (request.getFlow() == LoginFlowEnum.PACIENTE) {
+        if (request.getFlow() == LoginFlowEnum.CPF) {
             PacienteModel paciente = getPaciente(request.getIdentificador());
             if (!passwordEncoder.matches(request.getSenha(), paciente.getSenha())) {
-                throw new RuntimeException("Senha incorreta!");
+                throw new UserAuthenticationException();
             }
             return generateToken(paciente.getId());
         }

@@ -8,5 +8,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface HistoricoRepository extends JpaRepository<HistoricoModel, UUID>  {
+public interface HistoricoRepository extends JpaRepository<HistoricoModel, String>  {
    }

@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum LoginFlowEnum {
-        MEDICO,
-        PACIENTE,
-        ESTABELECIMENTO;
+        CRM,
+        CPF,
+        CNPJ;
 
         @JsonValue
         @Override

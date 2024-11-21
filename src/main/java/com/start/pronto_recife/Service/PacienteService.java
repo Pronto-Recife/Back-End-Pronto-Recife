@@ -1,6 +1,9 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOPaciente;
+import com.start.pronto_recife.Enum.LoginFlowEnum;
+import com.start.pronto_recife.Exceptions.User.UserAlreadyExistsException;
+import com.start.pronto_recife.Exceptions.User.UserNotFoundException;
 import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
@@ -21,7 +24,7 @@ public class PacienteService {
 
     public DTOPaciente createPaciente(DTOPaciente dtoPaciente){
         if(pacienteRepository.findByCPF(dtoPaciente.CPF()).isPresent()){
-            throw new RuntimeException("CPF já existe!");
+            throw new UserAlreadyExistsException(dtoPaciente.CPF(), LoginFlowEnum.CPF.toString());
         }
         String criptSenha = passwordEncoder.encode(dtoPaciente.senha());
         PacienteModel newPaciente = pacienteMapper.toModel(dtoPaciente);
@@ -29,19 +32,9 @@ public class PacienteService {
         pacienteRepository.save(newPaciente);
         return pacienteMapper.toDTO(newPaciente);
     }
-    public String loginPaciente(String cpf, String senha){
-        PacienteModel pacienteExists = pacienteRepository.findByCPF(cpf)
-                .orElseThrow(() -> new RuntimeException("CPF Não Encontrado!"));
-
-        if (!passwordEncoder.matches(senha, pacienteExists.getSenha())) {
-            throw new RuntimeException("Senha incorreta!");
-        }
-
-        return "Login Bem-Sucedido!";
-    }
     public DTOPaciente updatePaciente(String id, DTOPaciente dtoPaciente){
         PacienteModel existingPaciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Id não encontrado!"));
+                .orElseThrow(() -> new UserNotFoundException(id));
         PacienteModel updatedModel = pacienteMapper.toModel(dtoPaciente);
         updatedModel.setId(existingPaciente.getId());
         pacienteRepository.save(updatedModel);
@@ -53,12 +46,12 @@ public class PacienteService {
     }
     public DTOPaciente findByCPF(String CPF){
         PacienteModel pacientExists = pacienteRepository.findByCPF(CPF).orElseThrow(() ->
-                new RuntimeException("CPF Não Existe!!"));
+                new UserNotFoundException(CPF, LoginFlowEnum.CPF.toString()));
         return pacienteMapper.toDTO(pacientExists);
     }
     public void deletePaciente(String id){
         PacienteModel pacienteExists = pacienteRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("Usuario não existe!"));
+                new UserNotFoundException(id));
         pacienteRepository.delete(pacienteExists);
     }
 }
