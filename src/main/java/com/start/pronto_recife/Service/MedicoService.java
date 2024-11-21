@@ -54,4 +54,10 @@ public class MedicoService {
         return medicoMapper.toDTO(medicoExists);
     }
 
+    public void deleteMedico(String CRM){
+        medicoRepository.findByCRM(CRM).orElseThrow(() ->
+                new RuntimeException("CRM Não Existe!!"));
+        medicoRepository.deleteByCRM(CRM);
+    }
+
 }
