@@ -1,0 +1,26 @@
+version: "3"
+services:
+  app:
+    build: .
+    container_name: prontorecife_app
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mysql
+
+
+  mysql:
+    image: mysql:8.0.40-debian
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: prontorecife
+      MYQSL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
