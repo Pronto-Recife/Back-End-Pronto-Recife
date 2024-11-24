@@ -17,6 +17,7 @@ public class ResponsavelModel {
     private String id;
     @Column(name = "nome_completo")
     private String nomeCompleto;
+    @Column(name = "cpf")
     private String cpf;
     @Column(name = "grau_parentesco")
     private String grauParentesco;

@@ -6,11 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
 public interface MedicoRepository extends JpaRepository<MedicoModel, String>  {
     Optional<MedicoModel> findByCRM(String CRM);
+    Optional<MedicoModel> findByEmail(String email);
     @Transactional
     void deleteByCRM(String CRM);
 }
+
