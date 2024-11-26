@@ -8,5 +8,11 @@ FROM openjdk:21-jdk
 WORKDIR /app
 
 EXPOSE 8080
+
 COPY --from=build /app/target/pronto-recife-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+FROM mysql:8.0.40-debian
+COPY init.sql /docker-entrypoint-initdb.d/init.sql
+EXPOSE 3306
+

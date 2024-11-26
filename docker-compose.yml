@@ -1,14 +1,4 @@
-version: "3"
 services:
-  app:
-    build: .
-    container_name: prontorecife_app
-    ports:
-      - "8081:8080"
-    depends_on:
-      - mysql
-
-
   mysql:
     image: mysql:8.0.40-debian
     container_name: mysql
@@ -18,9 +8,28 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
     volumes:
       - mysql_data:/var/lib/mysql
+
+  app:
+    depends_on:
+      mysql:
+        condition: service_healthy
+    build: .
+    container_name: prontorecife_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/prontorecife
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8081:8080"
 
 volumes:
   mysql_data:
