@@ -60,18 +60,18 @@ public class PasswordResetService {
         return true;
     }
 
-    // Reseta a senha do médico ou paciente
+
     public void resetPassword(String token, String newPassword) {
         PasswordResetToken resetToken = tokenRepository.findByToken(token)
                 .orElseThrow(() -> new RuntimeException("Token inválido ou expirado!"));
 
         if (resetToken.getMedico() != null) {
             MedicoModel medico = resetToken.getMedico();
-            medico.setSenha(newPassword); // Supondo que exista um setter para senha no Medico
+            medico.setSenha(newPassword);
             medicoRepository.save(medico);
         } else if (resetToken.getPaciente() != null) {
             PacienteModel paciente = resetToken.getPaciente();
-            paciente.setSenha(newPassword); // Supondo que exista um setter para senha no Paciente
+            paciente.setSenha(newPassword);
             pacienteRepository.save(paciente);
         }
 
