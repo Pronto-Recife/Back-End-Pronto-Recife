@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS agente_saude (
   senha VARCHAR(255) NOT NULL,
   telefone VARCHAR(255) NOT NULL,
   id_estabelecimento CHAR(36),
+  cpf VARCHAR(14) UNIQUE NOT null,
   PRIMARY KEY pk_id(id),
   CONSTRAINT `fk_agente_estabelecimento`
     FOREIGN KEY (id_estabelecimento)
