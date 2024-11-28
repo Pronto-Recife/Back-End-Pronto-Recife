@@ -37,12 +37,12 @@ O back-end foi projetado para garantir a segurança, escalabilidade e robustez n
 ## 🛠️ Tecnologias Utilizadas
 
 - **Back-End:**
-  - [Node.js](https://nodejs.org/) - Ambiente de execução JavaScript.
-  - [Express.js](https://expressjs.com/) - Framework web para criação de APIs RESTful.
-  - [Sequelize](https://sequelize.org/) - ORM para manipulação do banco de dados.
+  - [Spring Boot]() - Ambiente de execução JavaScript.
+  - [Java]() - Framework web para criação de APIs RESTful.
+  - [Spring Security]() - Para as questões de segurança.
 
 - **Banco de Dados:**
-  - [PostgreSQL](https://www.postgresql.org/) - Sistema de banco de dados relacional.
+  - [MySQL]() - Sistema de banco de dados relacional.
 
 - **Outras Ferramentas:**
   - **Docker** - Para containerização e padronização do ambiente de desenvolvimento.
@@ -54,7 +54,6 @@ O back-end foi projetado para garantir a segurança, escalabilidade e robustez n
 ## 🧑‍💻 Como Rodar o Projeto Localmente
 
 ### Pré-requisitos:
-- **Node.js** (v16 ou superior)
 - **Docker** e **Docker Compose**
 - **Git**
 
