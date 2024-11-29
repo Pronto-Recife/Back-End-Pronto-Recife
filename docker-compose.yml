@@ -30,6 +30,22 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     ports:
       - "8081:8080"
+  flyway:
+    image: flyway/flyway:8.5.11
+    depends_on:
+      mysql:
+        condition: service_healthy
+    container_name: flyway
+    environment:
+      FLYWAY_URL: jdbc:mysql://mysql:3306/prontorecife?allowPublicKeyRetrieval=true&useSSL=false
+      FLYWAY_USER: root
+      FLYWAY_PASSWORD: root
+      FLYWAY_SCHEMAS: prontorecife
+    volumes:
+      - ./flyway:/flyway/sql
+    command: migrate
+
 
 volumes:
   mysql_data:
+
