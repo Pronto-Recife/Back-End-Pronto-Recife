@@ -2,11 +2,13 @@ package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOAgenda;
 import com.start.pronto_recife.DTOs.DTOMedico;
+import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.AgendaMapper;
 import com.start.pronto_recife.Models.AgendaModel;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Repositories.AgendaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +19,7 @@ public class AgendaService {
 
     public DTOAgenda createAgenda(DTOAgenda dtoAgenda){
         agendaRepository.findById(dtoAgenda.id()).ifPresent(agendaModel -> {
-            throw new RuntimeException("Consulta já cadastrado");
+            throw new CustomException("Consulta já cadastrada!", HttpStatus.CONFLICT, null);
         });
         AgendaModel agendaModel = agendaRepository.save(agendaMapper.toModel(dtoAgenda));
         return agendaMapper.toDTO(agendaModel);

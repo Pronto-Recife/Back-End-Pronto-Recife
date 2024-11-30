@@ -7,20 +7,20 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record DTOConsulta(
-        @NotNull@NotBlank @JsonFormat(pattern="yyyy-MM-dd")
+        @NotNull @NotBlank @JsonFormat(pattern="yyyy-MM-dd")
         LocalDate data_consulta,
-        @NotNull@NotBlank
+        @NotNull @NotBlank
         String tratamentos_prescritos,
-        @NotNull@NotBlank
+        @NotNull @NotBlank
         String instrucoes_recomendacoes,
-        @NotNull@NotBlank
+        @NotNull @NotBlank
         String sintomas,
-        @NotNull@NotBlank
+        @NotNull @NotBlank
         String historico_familiar,
-        @NotNull@NotBlank
-        UUID paciente_id,
-        @NotNull@NotBlank
-        UUID medico_id
+        @NotNull @NotBlank
+        String paciente_id,
+        @NotNull @NotBlank
+        String medico_id
 )
 
         {

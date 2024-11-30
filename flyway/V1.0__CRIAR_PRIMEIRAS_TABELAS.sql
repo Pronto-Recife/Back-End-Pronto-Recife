@@ -13,7 +13,8 @@ CREATE TABLE `estabelecimento` (
   id_medico CHAR(36),
   id_paciente CHAR(36),
   id_consulta CHAR(36),
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idx_id` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Laudos
@@ -65,12 +66,12 @@ CREATE TABLE IF NOT EXISTS agente_saude (
   senha VARCHAR(255) NOT NULL,
   telefone VARCHAR(255) NOT NULL,
   id_estabelecimento CHAR(36),
-  PRIMARY KEY pk_id(id),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_agente_estabelecimento`
     FOREIGN KEY (id_estabelecimento)
     REFERENCES estabelecimento (id)
     ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB;
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS profissional_saude (
   id CHAR(36) DEFAULT (UUID()),
@@ -85,7 +86,7 @@ CREATE TABLE IF NOT EXISTS profissional_saude (
     FOREIGN KEY (id_estabelecimento)
     REFERENCES estabelecimento (id)
     ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB;
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Paciente
 CREATE TABLE IF NOT EXISTS `paciente` (
@@ -167,7 +168,7 @@ CREATE TABLE password_reset_token_seq (
     cache_size BIGINT(21) NOT NULL,
     cycle_option TINYINT(1) NOT NULL,
     cycle_count BIGINT(21) NOT NULL
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Exame do Paciente
 CREATE TABLE IF NOT EXISTS `exame_do_paciente` (
@@ -175,12 +176,12 @@ CREATE TABLE IF NOT EXISTS `exame_do_paciente` (
   data_exame DATE NOT NULL,
   resultado TEXT NOT NULL,
   nome_do_exame VARCHAR(100) NOT NULL,
-  paciente_id CHAR(36) NOT NULL,
+  paciente_cpf VARCHAR(14) UNIQUE NOT NULL,
   consulta_id CHAR(36),
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_exame_paciente`
-    FOREIGN KEY (`paciente_id`)
-    REFERENCES `paciente` (`id`)
+    FOREIGN KEY (`paciente_cpf`)
+    REFERENCES `paciente` (`cpf`)
     ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_exame_consulta`
     FOREIGN KEY (`consulta_id`)

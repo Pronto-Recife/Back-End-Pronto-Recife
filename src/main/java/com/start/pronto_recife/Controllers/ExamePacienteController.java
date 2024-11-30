@@ -12,39 +12,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController
+@RestController ("exame")
 @RequiredArgsConstructor
 public class ExamePacienteController {
     private final ExamePacienteService examePacienteService;
 
-
-    @PostMapping("/exame")
-    public ResponseEntity<ExamePacienteDTO> saveExamePaciente(@RequestBody @Valid ExamePacienteDTO examePacienteDTOdto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(examePacienteService.createExame(examePacienteDTOdto));
+    @PostMapping()
+    public ResponseEntity<ExamePacienteDTO> saveExamePaciente(@RequestBody @Valid ExamePacienteDTO examePacienteDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(examePacienteService.createExame(examePacienteDTO));
     }
-
-    @DeleteMapping("/exame/{id}")
-    public ResponseEntity<Void> deleteExamePaciente(@PathVariable UUID id) {
-        examePacienteService.deleteExame(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
-
-    @GetMapping("/exame")
+    @GetMapping()
     public ResponseEntity<List<ExamePacienteDTO>> getallExames() {
         return ResponseEntity.status(HttpStatus.OK).body(examePacienteService.getAllExames());
-
     }
-
-    @GetMapping("/exame/{id}")
-    public ResponseEntity<ExamePacienteDTO> getExamesByID(@PathVariable UUID id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ExamePacienteDTO> getExamesByID(@PathVariable String id) {
         ExamePacienteDTO consulta = examePacienteService.getExameById(id);
         return ResponseEntity.ok().body(consulta);
-
     }
     @PutMapping("/exame/{id}")
-    public ResponseEntity<ExamePacienteDTO> updateExame(@PathVariable UUID id, @RequestBody @Valid ExamePacienteDTO examePacienteDTO) {
+    public ResponseEntity<ExamePacienteDTO> updateExame(@PathVariable String id, @RequestBody @Valid ExamePacienteDTO examePacienteDTO) {
         ExamePacienteDTO consulta = examePacienteService.updateExame(id, examePacienteDTO);
         return ResponseEntity.status(HttpStatus.OK).body(consulta);
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExamePaciente(@PathVariable String id) {
+        examePacienteService.deleteExame(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

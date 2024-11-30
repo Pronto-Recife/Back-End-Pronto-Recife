@@ -16,25 +16,18 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExamePacientModel {
-
+public class ExamePacienteModel {
     @Id
     @GeneratedValue(strategy =GenerationType.UUID)
     @JdbcTypeCode(Types.VARCHAR)
-
-    private UUID id;
-
+    private String id;
     private LocalDate dataExame;
-
     @Column(name = "resultado", nullable = false)
     private String resultado;
-
     @Column(name = "nome_do_exame", nullable = false, length = 100)
     private String nomeDoExame;
-
-    @Column(name = "paciente_id", nullable = false)
-    private UUID pacienteId;
-
+    @Column(name = "paciente_cpf", nullable = false)
+    private String pacienteCPF;
     @Column(name = "consulta_id")
-    private UUID consultaId;
+    private String consultaId;
 }
