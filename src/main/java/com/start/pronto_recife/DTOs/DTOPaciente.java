@@ -1,12 +1,10 @@
 package com.start.pronto_recife.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public record DTOPaciente(
                           @NotNull @NotBlank @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
@@ -34,6 +32,6 @@ public record DTOPaciente(
                           @NotNull @NotBlank
                           String endereco,
                           @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
-                          String responsavel_CPF){
+                          String responssavelCpf){
 
 }

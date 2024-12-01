@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController ("exame")
+@RestController ()
+@RequestMapping("/exame")
 @RequiredArgsConstructor
 public class ExamePacienteController {
     private final ExamePacienteService examePacienteService;
@@ -30,7 +31,7 @@ public class ExamePacienteController {
         ExamePacienteDTO consulta = examePacienteService.getExameById(id);
         return ResponseEntity.ok().body(consulta);
     }
-    @PutMapping("/exame/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ExamePacienteDTO> updateExame(@PathVariable String id, @RequestBody @Valid ExamePacienteDTO examePacienteDTO) {
         ExamePacienteDTO consulta = examePacienteService.updateExame(id, examePacienteDTO);
         return ResponseEntity.status(HttpStatus.OK).body(consulta);

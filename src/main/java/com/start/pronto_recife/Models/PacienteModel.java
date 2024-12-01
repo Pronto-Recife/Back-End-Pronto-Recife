@@ -33,7 +33,7 @@ public class PacienteModel{
     private String cep;
     private String endereco;
     @Column(name = "responsavel_CPF", length = 14)
-    private String responsavel_CPF;
+    private String responsavelCpf;
 
     @PrePersist
     public void prePersist() {

@@ -53,7 +53,7 @@ public class  ResponsavelService {
                 new CustomException("Responsável não encontrado!", HttpStatus.NOT_FOUND, null));
         List<PacienteModel> paciente = pacienteRepository.findByResponsavelCpf(responsavelExists.getCpf());
         List<PacienteModel> pacienteUpdate = paciente.stream()
-                .peek(p -> p.setResponsavel_CPF(null)).toList();
+                .peek(p -> p.setResponsavelCpf(null)).toList();
         pacienteRepository.saveAll(pacienteUpdate);
         responsavelRepository.delete(responsavelExists);
     }
