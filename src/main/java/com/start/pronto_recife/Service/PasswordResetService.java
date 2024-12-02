@@ -36,9 +36,9 @@ public class PasswordResetService {
                     .orElseThrow(() -> new RuntimeException("Médico não encontrado com o email fornecido."));
             token.setMedico(medicoModel);
         } else {
-            PacienteModel pacienteModel = pacienteRepository.findByEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Paciente não encontrado com o email fornecido."));
-            token.setPaciente(pacienteModel);
+//            PacienteModel pacienteModel = pacienteRepository.findByEmail(email)
+//                    .orElseThrow(() -> new RuntimeException("Paciente não encontrado com o email fornecido."));
+//            token.setPaciente(pacienteModel);
         }
 
         PasswordResetToken savedToken = tokenRepository.save(token);

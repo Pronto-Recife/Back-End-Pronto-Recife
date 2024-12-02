@@ -16,8 +16,8 @@ public class MedicoModel{
     private String id;
     @Column(name = "CRM", unique = true)
     private String CRM;
-    private String nome_completo;
-    private String especialidade;
+    private String nomeCompleto;
+    //    private String especialidade;
     private String telefone;
     private String email;
     @Column(name = "senha")
@@ -32,4 +32,3 @@ public class MedicoModel{
         }
     }
 }
-

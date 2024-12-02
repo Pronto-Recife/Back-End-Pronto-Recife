@@ -10,9 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 @Mapper(componentModel = "spring")
 public interface ResponsavelMapper {
-    @Mapping(source = "dataNascimento", target = "dataNascimento")
     DTOResponsavel toDTO(ResponsavelModel responsavelModel);
-    @Mapping(source = "dataNascimento", target = "dataNascimento")
     ResponsavelModel toModel(DTOResponsavel dtoresponsavel);
     List<DTOResponsavel> listEntitytoListDTO(List<ResponsavelModel> responsavel);
     default String map(LocalDate value){

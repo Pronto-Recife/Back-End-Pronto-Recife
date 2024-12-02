@@ -6,16 +6,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum LoginFlowEnum {
         CRM,
         CPF,
-        CNPJ;
+        COREN;
 
         @JsonValue
         @Override
         public String toString() {
-            return name();
+                return name();
         }
 
         @JsonCreator
         public static LoginFlowEnum fromValue(String value) {
-            return LoginFlowEnum.valueOf(value.toUpperCase());
+                return LoginFlowEnum.valueOf(value.toUpperCase());
         }
 }
