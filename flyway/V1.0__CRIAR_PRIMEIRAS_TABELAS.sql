@@ -6,12 +6,11 @@ CREATE TABLE `estabelecimento` (
   id CHAR(36) DEFAULT (UUID()),
   cnpj VARCHAR(18) UNIQUE NOT NULL,
   nome VARCHAR(255) NOT NULL,
-  endereco VARCHAR(255) NOT NULL,
-  telefone VARCHAR(15) NOT NULL,
+  endereco VARCHAR(255)  NULL,
+  telefone VARCHAR(15)  NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
   id_medico CHAR(36),
-  id_paciente CHAR(36),
   id_consulta CHAR(36),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idx_id` (`id`)
@@ -27,35 +26,32 @@ CREATE TABLE `laudos` (
 -- Tabela Responsável
 CREATE TABLE IF NOT EXISTS `responsavel` (
   id CHAR(36) DEFAULT (UUID()),
-  nome_completo VARCHAR(100) NOT NULL,
-  grau_parentesco VARCHAR(45) NOT NULL,
-  data_nascimento DATE NOT NULL,
-  genero VARCHAR(10) NOT NULL,
-  telefone VARCHAR(15) NOT NULL,
-  email VARCHAR(50) UNIQUE ,
-  cpf VARCHAR(14) UNIQUE NOT NULL,
+  nome_completo VARCHAR(100)  NULL,
+  grau_parentesco VARCHAR(45) NULL,
+  endereco VARCHAR(255) NULL,
+  telefone VARCHAR(15) NULL,
+  email VARCHAR(50) UNIQUE NULL,
+  cpf VARCHAR(14) UNIQUE NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
-  UNIQUE INDEX `idx_cpf` (`cpf`) -- Índice adicionado para o campo cpf
+  UNIQUE INDEX `idx_cpf` (`cpf`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
--- Tabela Médico
 CREATE TABLE `medico` (
-  id CHAR(36) DEFAULT (UUID()),
-  crm VARCHAR(15) UNIQUE NOT NULL,
-  id_estabelecimento CHAR(36),
-  especialidade VARCHAR(255) NOT NULL,
+ id CHAR(36) DEFAULT (UUID()),
+ crm VARCHAR(15) UNIQUE NOT NULL,
+ id_estabelecimento CHAR(36),
   email VARCHAR(255) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
   nome_completo VARCHAR(100) NOT NULL,
-  telefone VARCHAR(15) NOT NULL,
+  telefone VARCHAR(15) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `crm_UNIQUE` (`crm` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   CONSTRAINT `fk_medico_estabelecimento`
-    FOREIGN KEY (id_estabelecimento)
-    REFERENCES estabelecimento (id)
-    ON DELETE NO ACTION ON UPDATE NO ACTION
+  FOREIGN KEY (id_estabelecimento)
+  REFERENCES estabelecimento (id)
+  ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- tabela agente de saude
@@ -64,7 +60,8 @@ CREATE TABLE IF NOT EXISTS agente_saude (
   nome VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   senha VARCHAR(255) NOT NULL,
-  telefone VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+  telefone VARCHAR(255) NULL,
   id_estabelecimento CHAR(36),
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_agente_estabelecimento`
@@ -79,7 +76,7 @@ CREATE TABLE IF NOT EXISTS profissional_saude (
   coren VARCHAR(15) UNIQUE NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
-  telefone VARCHAR(255) NOT NULL,
+  telefone VARCHAR(255) NULL,
   id_estabelecimento CHAR(36),
   PRIMARY KEY pk_id(id),
   CONSTRAINT `fk_profissional_estabelecimento`
@@ -89,31 +86,26 @@ CREATE TABLE IF NOT EXISTS profissional_saude (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Paciente
-CREATE TABLE IF NOT EXISTS `paciente` (
-  id CHAR(36) DEFAULT (UUID()),
-  nome_completo VARCHAR(100) NOT NULL,
-  cpf VARCHAR(14) UNIQUE NOT NULL,
-  data_nascimento DATE NOT NULL,
-  genero VARCHAR(10) NOT NULL,
-  email VARCHAR(100) UNIQUE,
-  senha VARCHAR(255) NOT NULL,
-  telefone VARCHAR(15) NOT NULL,
-  contato_representante VARCHAR(15),
-  cep VARCHAR(9) NOT NULL,
-  endereco VARCHAR(250) NOT NULL,
-  responsavel_cpf VARCHAR(14),
-  id_estabelecimento CHAR(36),
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
-  CONSTRAINT `fk_paciente_responsavel`
-    FOREIGN KEY (`responsavel_cpf`)
-    REFERENCES `responsavel` (`cpf`)
-ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_paciente_estabelecimento`
-    FOREIGN KEY (id_estabelecimento)
-    REFERENCES estabelecimento (id)
+CREATE TABLE IF NOT EXISTS paciente (
+    id CHAR(36) DEFAULT (UUID()),
+    nome_completo VARCHAR(100) NOT NULL,
+    estado_civil VARCHAR (50) NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE NULL,
+    genero VARCHAR(10) NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    telefone VARCHAR(15) NULL,
+    contato_representante VARCHAR(15) NULL,
+    endereco VARCHAR(255) NULL,
+    responsavel_cpf VARCHAR(14) NULL,
+    PRIMARY KEY (id),
+    UNIQUE INDEX email_UNIQUE (email ASC),
+    CONSTRAINT fk_paciente_responsavel
+    FOREIGN KEY (responsavel_cpf)
+    REFERENCES responsavel (cpf)
     ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+    ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 -- Tabela Consulta
 CREATE TABLE `consulta` (

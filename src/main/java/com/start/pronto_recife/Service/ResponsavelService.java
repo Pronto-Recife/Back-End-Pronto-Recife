@@ -24,7 +24,7 @@ public class  ResponsavelService {
     private final ResponsavelRepository responsavelRepository;
     private final PacienteRepository pacienteRepository;
 
-    // Service create new responsavel
+
     public DTOResponsavel createResponsavel(DTOResponsavel dtoResponsavel) {
         try {
             ResponsavelModel responsavelModel = responsavelRepository.save(responsavelMapper.toModel(dtoResponsavel));
@@ -33,12 +33,12 @@ public class  ResponsavelService {
             throw new CustomException("Erro ao Salvar Responsável!", HttpStatus.BAD_REQUEST, null);
         }
     }
-    // Service findAll responsavel
+
     public List<DTOResponsavel> findAll() {
         List<ResponsavelModel> responsavel = responsavelRepository.findAll();
         return responsavelMapper.listEntitytoListDTO(responsavel);
     }
-    // Service update responsavel
+
     public DTOResponsavel updateResponsavel(String id, DTOResponsavel dtoResponsavel) {
         ResponsavelModel existingResponsavel = responsavelRepository.findById(id)
                 .orElseThrow(() -> new CustomException("Responsavel não encontrado!", HttpStatus.NOT_FOUND, null));

@@ -17,14 +17,12 @@ public record DTOResponsavel(
                             String nomeCompleto,
                             @NotBlank
                             String grauParentesco,
-                            @NotNull @JsonFormat(pattern="yyyy-MM-dd")
-                            LocalDate dataNascimento,
+                            String endereco,
                             @NotNull @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
                             @Schema(example = "(81)912345678")
                             String telefone,
-                            @Email
-                            String email,
-                            @NotBlank
-                            String genero) {
+                            @Email @NotBlank @NotNull
+                            String email)
+{
 
 }

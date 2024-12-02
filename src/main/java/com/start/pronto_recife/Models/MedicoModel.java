@@ -22,6 +22,8 @@ public class MedicoModel{
     private String email;
     @Column(name = "senha")
     private String senha;
+    @Column (name = "id_estabelecimento")
+    private String idEstabelecimento;
 
     @PrePersist
     public void prePersist() {

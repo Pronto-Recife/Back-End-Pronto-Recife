@@ -9,27 +9,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
-@RestController("responsavel")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/responsavel")
 public class ResponsavelController {
     private final ResponsavelService responsavelService;
 
-    // GET controller
-    @GetMapping("/responsavel")
-    public ResponseEntity<List<DTOResponsavel>> getAllResponsavels() {
+
+    @GetMapping()
+    public ResponseEntity<List<DTOResponsavel>> getAllResponsavel() {
         return ResponseEntity.status(HttpStatus.OK).body(responsavelService.findAll());
     }
 
-    // PUT controller
+
     @PutMapping("/responsavel/{id}")
     public ResponseEntity<DTOResponsavel> updateResponsavel(@PathVariable String id, @RequestBody @Valid DTOResponsavel dtoResponsavel) {
         DTOResponsavel updateresponsavel = responsavelService.updateResponsavel(id, dtoResponsavel);
         return ResponseEntity.status(HttpStatus.OK).body(updateresponsavel);
     }
 
-    // POST controller
+
     @PostMapping("/responsavel")
     public ResponseEntity<DTOResponsavel> saveResponsavel(@RequestBody DTOResponsavel dtoResponsavel) {
         return ResponseEntity.status(HttpStatus.CREATED).body(responsavelService.createResponsavel(dtoResponsavel));

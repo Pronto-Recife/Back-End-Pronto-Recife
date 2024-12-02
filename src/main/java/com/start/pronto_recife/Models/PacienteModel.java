@@ -21,16 +21,18 @@ public class PacienteModel{
     private String id;
     @Column(name = "cpf", unique = true, length = 14)
     private String CPF;
-    private String nome_completo;
+    @Column (name = "estado_civil")
+    private String estadoCivil;
+    @Column (name = "nome_completo")
+    private String nomeCompleto;
     @Column(name = "data_nascimento")
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
     private String genero;
     @Column(name = "email", unique = true)
     private String email;
     private String senha;
     private String telefone;
-    private String contato_representante;
-    private String cep;
+    private String contatoRepresentante;
     private String endereco;
     @Column(name = "responsavel_CPF", length = 14)
     private String responsavelCpf;

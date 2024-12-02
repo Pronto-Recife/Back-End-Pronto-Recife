@@ -13,8 +13,4 @@ public class ProntoRecifeApplication {
 		SpringApplication.run(ProntoRecifeApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String index(){
-		return "Hello World!";
-	}
 }
