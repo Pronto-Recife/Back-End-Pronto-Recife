@@ -1,7 +1,6 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOConsulta;
-import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Service.ConsultaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController("consulta")
 @RequiredArgsConstructor

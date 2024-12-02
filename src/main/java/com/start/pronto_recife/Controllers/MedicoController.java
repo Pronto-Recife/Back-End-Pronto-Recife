@@ -1,30 +1,21 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOMedico;
-import com.start.pronto_recife.DTOs.DTOPaciente;
-import com.start.pronto_recife.Mapper.MedicoMapper;
-import com.start.pronto_recife.Models.MedicoModel;
-import com.start.pronto_recife.Repositories.MedicoRepository;
 import com.start.pronto_recife.Service.MedicoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/medico")
 public class MedicoController {
-    private final MedicoMapper medicoMapper;
     private final MedicoService medicoService;
-    private final MedicoRepository medicoRepository;
 
     @PostMapping("/register")
     public ResponseEntity<DTOMedico> saveMedico(@RequestBody @Valid DTOMedico dtoMedico){

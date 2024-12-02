@@ -1,6 +1,5 @@
 package com.start.pronto_recife.Service;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.start.pronto_recife.DTOs.DTOHistorico;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.HistoricoMapper;

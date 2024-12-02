@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public record ExamePacienteDTO(@NotNull @NotBlank
                                LocalDate dataExame,

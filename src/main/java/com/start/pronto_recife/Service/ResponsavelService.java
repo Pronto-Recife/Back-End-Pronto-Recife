@@ -8,14 +8,10 @@ import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import com.start.pronto_recife.Repositories.ResponsavelRepository;
 import lombok.RequiredArgsConstructor;
-import org.mapstruct.Mapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

@@ -9,7 +9,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 
 import java.sql.Types;
 import java.time.LocalDate;
-import java.util.UUID;
+
 @Entity
 @Table(name = "exame_do_paciente")
 @Getter

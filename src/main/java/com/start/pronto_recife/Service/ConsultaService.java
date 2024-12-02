@@ -3,15 +3,12 @@ import com.start.pronto_recife.DTOs.DTOConsulta;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.ConsultaMapper;
 import com.start.pronto_recife.Models.ConsultaModel;
-import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.ConsultaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

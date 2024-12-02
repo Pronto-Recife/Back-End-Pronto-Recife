@@ -1,7 +1,6 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOPaciente;
-import com.start.pronto_recife.Enum.LoginFlowEnum;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.PacienteModel;
