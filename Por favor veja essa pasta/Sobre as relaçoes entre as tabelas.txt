@@ -1,1 +1,7 @@
-Eu fiz relacoes entre as tabelas Medico paciente Exame Consulta e Responsavel por favor teste e veja a logico eu fiz algumas gambiarras entao pode dar problemas ainda em certas coisas na api A imagem que eu coloquei acima Representa as tabelas e como elas foram construidas tambem passarei um sql bagunçado entao crie so as tabelas desse sql baguçando que tem o mesmo nome  das taelas que eu alterei
+Eu fiz relacoes entre as tabelas Medico paciente Exame Consulta e 
+Responsavel por favor teste e veja a logica que fiz tem algumas gambiarras entao pode dar problemas 
+ainda em certas coisas na api A imagem que eu coloquei acima Representa as tabelas e como elas foram 
+construidas tambem passarei um sql bagunçado nessa mesma pasta entao crie so as tabelas desse sql baguçando que 
+tem o mesmo nome  das tabelas que eu alterei.
+Eu estou fazendo assim estou usando o docker, uso o docker apenas para me conectar ao mysql nao rodo o Flyaway e nem a aplicacao prontorecife do 
+docker.
