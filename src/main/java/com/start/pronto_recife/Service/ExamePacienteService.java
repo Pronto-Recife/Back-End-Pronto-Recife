@@ -3,7 +3,10 @@ package com.start.pronto_recife.Service;
 import com.start.pronto_recife.DTOs.ExamePacienteDTO;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.ExamePacienteMapper;
+import com.start.pronto_recife.Models.ConsultaModel;
 import com.start.pronto_recife.Models.ExamePacienteModel;
+import com.start.pronto_recife.Models.PacienteModel;
+import com.start.pronto_recife.Repositories.ConsultaRepository;
 import com.start.pronto_recife.Repositories.ExamePacienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,10 +20,13 @@ public class ExamePacienteService {
 
     private final ExamePacienteRepository exameRepository;
     private final ExamePacienteMapper examePacienteMapper;
+    private final ConsultaRepository consultaRepository;
 
     public ExamePacienteDTO createExame(ExamePacienteDTO examePacienteDTO) {
         try {
+           ConsultaModel consultaModel =consultaRepository.findById(examePacienteDTO.consultaId()).orElseThrow();
             ExamePacienteModel exame = examePacienteMapper.toModel(examePacienteDTO);
+            exame.setConsulta(consultaModel);
             exame = exameRepository.save(exame);
             return examePacienteMapper.toDTO(exame);
         }catch (Exception e){

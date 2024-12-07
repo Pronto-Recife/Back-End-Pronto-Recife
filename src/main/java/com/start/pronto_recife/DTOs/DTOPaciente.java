@@ -9,28 +9,31 @@ import java.time.LocalDate;
 public record DTOPaciente(
                           @NotNull @NotBlank @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
                           String CPF,
+
+                          String estadoCivil,
+
                           @NotNull @NotBlank
                           String nomeCompleto,
-                          String estadoCivil,
+
                           @NotNull
-                          @JsonFormat(pattern="yyyy-MM-dd")
                           LocalDate dataNascimento,
-                          @NotBlank
+
                           String genero,
-                          @NotBlank @NotNull @Email
+
+                          @NotNull @NotBlank @Email
                           String email,
-                          @NotBlank @NotNull
+
+                          @NotNull @NotBlank
                           String senha,
-                          @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
-                          @Schema(example = "(81)912345678")
+
+                          @NotNull @NotBlank
                           String telefone,
-                          @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
-                          @Schema(example = "(81)912345678")
+
                           String contatoRepresentante,
-                          @NotNull @NotBlank@Pattern(regexp = "^\\d{5}-\\d{3}$", message = "O CEP deve estar no formato 12345-678")
-                          @NotBlank
+
                           String endereco,
-                          @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
-                          String responsavelCpf){
+
+                          // Responsável pode ser mapeado em outro DTO, se necessário
+                          String responsavelId){
 
 }

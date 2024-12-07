@@ -35,12 +35,12 @@ public class ResponsavelController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responsavelService.createResponsavel(dtoResponsavel));
     }
 
-    @DeleteMapping("/delresponsavel/{id}")
-    public ResponseEntity<Void> deleteResponsavel(@PathVariable String id) {
-        responsavelService.deleteResponsavel(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-
-    }
+//    @DeleteMapping("/delresponsavel/{id}")
+//    public ResponseEntity<Void> deleteResponsavel(@PathVariable String id) {
+//        responsavelService.deleteResponsavel(id);
+//        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//
+//    }
 }
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ConsultaMapper {
-    @Mapping(source = "data_consulta", target ="data_consulta" )
+
     ConsultaModel toModel(DTOConsulta dtoconsulta);
     DTOConsulta toDTO(ConsultaModel consultaModel);
     List<DTOConsulta> listModeltoListDTO(List<ConsultaModel> consultas);

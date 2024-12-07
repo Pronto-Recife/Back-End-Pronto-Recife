@@ -1,5 +1,6 @@
 package com.start.pronto_recife.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,13 +22,17 @@ public class ExamePacienteModel {
     @GeneratedValue(strategy =GenerationType.UUID)
     @JdbcTypeCode(Types.VARCHAR)
     private String id;
+    @Column(name = "data_exame")
     private LocalDate dataExame;
     @Column(name = "resultado", nullable = false)
     private String resultado;
     @Column(name = "nome_do_exame", nullable = false, length = 100)
     private String nomeDoExame;
-    @Column(name = "paciente_cpf", nullable = false)
-    private String pacienteCPF;
-    @Column(name = "consulta_id")
-    private String consultaId;
+    @ManyToOne
+    @JoinColumn(name="consulta_id")
+    @JsonBackReference
+
+    private ConsultaModel consulta;
+
+
 }

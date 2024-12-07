@@ -1,11 +1,14 @@
 package com.start.pronto_recife.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -18,7 +21,7 @@ public class ResponsavelModel {
     @Column(name = "nome_completo")
     private String nomeCompleto;
     @Column(name = "cpf")
-    private String cpf;
+    private String responsavelCpf;
     @Column(name = "grau_parentesco")
     private String grauParentesco;
     private String endereco;
@@ -27,6 +30,10 @@ public class ResponsavelModel {
     private LocalDate dataNascimento;
     private String telefone;
     private String email;
+    @OneToMany(mappedBy = "responsavel")
+//    @JsonBackReference
+    @JsonManagedReference
+    private List<PacienteModel> paciente;
 
 
     @PrePersist

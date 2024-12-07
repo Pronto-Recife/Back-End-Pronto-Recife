@@ -1,9 +1,12 @@
 package com.start.pronto_recife.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -16,14 +19,20 @@ public class MedicoModel{
     private String id;
     @Column(name = "CRM", unique = true)
     private String CRM;
+    @Column(name = "nome_completo")
     private String nomeCompleto;
-    //    private String especialidade;
+    @Column(name = "telefone")
     private String telefone;
+    @Column(name = "email")
     private String email;
     @Column(name = "senha")
     private String senha;
-    @Column (name = "id_estabelecimento")
-    private String idEstabelecimento;
+
+
+    @OneToMany(mappedBy = "medico")
+//    @JsonBackReference
+    @JsonManagedReference
+    private List<ConsultaModel> consulta;
 
     @PrePersist
     public void prePersist() {

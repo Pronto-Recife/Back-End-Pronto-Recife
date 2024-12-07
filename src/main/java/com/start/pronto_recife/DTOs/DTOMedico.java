@@ -10,7 +10,6 @@ import jakarta.validation.constraints.Pattern;
 public record DTOMedico (@NotBlank @NotNull @Pattern(regexp = "^\\d{6}-[A-Z]{2}$", message = "O CRM deve estar no formato 123456-PE")
                          @Schema(example = "123456-PE")
                          String CRM,
-                         String idEstabelecimento,
                          @NotBlank @NotNull
                          String nomeCompleto,
                          @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")

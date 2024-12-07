@@ -4,7 +4,9 @@ import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.PacienteModel;
+import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
+import com.start.pronto_recife.Repositories.ResponsavelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,14 +21,17 @@ public class PacienteService {
     private final PacienteMapper pacienteMapper;
     private final PacienteRepository pacienteRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final ResponsavelRepository responsavelRepository;
 
     public DTOPaciente createPaciente(DTOPaciente dtoPaciente){
         if(pacienteRepository.findByCPF(dtoPaciente.CPF()).isPresent()){
             throw new CustomException("CPF já cadastrado por outro usuário!", HttpStatus.CONFLICT, null);
         }
+        ResponsavelModel responsavelModel =responsavelRepository.findById(dtoPaciente.responsavelId()).orElseThrow();
         String criptSenha = passwordEncoder.encode(dtoPaciente.senha());
         PacienteModel newPaciente = pacienteMapper.toModel(dtoPaciente);
         newPaciente.setSenha(criptSenha);
+        newPaciente.setResponsavel(responsavelModel);
         pacienteRepository.save(newPaciente);
         return pacienteMapper.toDTO(newPaciente);
     }

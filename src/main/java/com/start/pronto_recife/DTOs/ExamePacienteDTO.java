@@ -6,14 +6,12 @@ import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 
-public record ExamePacienteDTO(@NotNull @NotBlank
+public record ExamePacienteDTO(@NotNull
                                LocalDate dataExame,
                                @NotNull @NotBlank
                                String resultado,
                                @NotNull @NotBlank
                                String nomeDoExame,
-                               @NotNull @NotBlank @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
-                               String pacienteCPF,
                                @NotNull @NotBlank
                                String consultaId) {
 }

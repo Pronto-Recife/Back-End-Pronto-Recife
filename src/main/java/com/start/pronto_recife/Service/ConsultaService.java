@@ -3,7 +3,12 @@ import com.start.pronto_recife.DTOs.DTOConsulta;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.ConsultaMapper;
 import com.start.pronto_recife.Models.ConsultaModel;
+import com.start.pronto_recife.Models.MedicoModel;
+import com.start.pronto_recife.Models.PacienteModel;
+import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.ConsultaRepository;
+import com.start.pronto_recife.Repositories.MedicoRepository;
+import com.start.pronto_recife.Repositories.PacienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -15,10 +20,15 @@ import java.util.List;
 public class ConsultaService {
     private final ConsultaMapper consultaMapper;
     private final ConsultaRepository consultaRepository;
-
+    private final MedicoRepository medicoRepository;
+    private final PacienteRepository pacienteRepository;
     public DTOConsulta createConsulta(DTOConsulta dtoconsulta){
         try {
+            MedicoModel medicoModel =medicoRepository.findById(dtoconsulta.medicoId()).orElseThrow();
+            PacienteModel pacienteModel =pacienteRepository.findById(dtoconsulta.pacienteId()).orElseThrow();
             ConsultaModel consultaModel = consultaMapper.toModel(dtoconsulta);
+            consultaModel.setMedico(medicoModel);
+            consultaModel.setPaciente(pacienteModel);
             ConsultaModel savedConsulta = consultaRepository.save(consultaModel);
             return consultaMapper.toDTO(savedConsulta);
         }catch (Exception e){

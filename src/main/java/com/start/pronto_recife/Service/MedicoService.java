@@ -38,7 +38,7 @@ public class MedicoService {
         MedicoModel target = medicoRepository.findByCRM(CRM)
                 .orElseThrow(()->new CustomException("CRM não encontrado!", HttpStatus.NOT_FOUND, null));
         target.setCRM(dtoMedico.CRM());
-        target.setIdEstabelecimento(dtoMedico.idEstabelecimento());
+//        target.setIdEstabelecimento(dtoMedico.idEstabelecimento());
         target.setNomeCompleto(dtoMedico.nomeCompleto());
         target.setTelefone(dtoMedico.telefone());
         target.setEmail(dtoMedico.email());

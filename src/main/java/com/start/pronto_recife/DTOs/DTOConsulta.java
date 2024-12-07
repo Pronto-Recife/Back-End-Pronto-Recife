@@ -1,25 +1,28 @@
 package com.start.pronto_recife.DTOs;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.start.pronto_recife.Models.ExamePacienteModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record DTOConsulta(
-        @NotNull @NotBlank @JsonFormat(pattern="yyyy-MM-dd")
-        LocalDate data_consulta,
+        @NotNull  @JsonFormat(pattern="yyyy-MM-dd")
+        LocalDate dataConsulta,
         @NotNull @NotBlank
-        String tratamentos_prescritos,
+        String tratamentosPrescritos,
         @NotNull @NotBlank
-        String instrucoes_recomendacoes,
+        String instrucoesRecomendacoes,
         @NotNull @NotBlank
         String sintomas,
         @NotNull @NotBlank
-        String historico_familiar,
+        String historicoFamiliar,
         @NotNull @NotBlank
-        String paciente_id,
+        String pacienteId,
         @NotNull @NotBlank
-        String medico_id
+        String medicoId,
+        List<ExamePacienteModel> exame
 )
 
         {
