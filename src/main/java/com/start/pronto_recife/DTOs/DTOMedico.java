@@ -12,16 +12,15 @@ public record DTOMedico (@NotBlank @NotNull @Pattern(regexp = "^\\d{6}-[A-Z]{2}$
                          String CRM,
                          @NotBlank @NotNull
                          String nomeCompleto,
-                         @NotNull
-                         String especialidade,
                          @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
                          @Schema(example = "(81)912345678")
                          String telefone,
                          @Email @NotBlank @NotNull
                          String email,
                          @NotNull @NotBlank
-                         String senha,
-                         String idEstabelecimento) {
+                         String senha
+//                         String idEstabelecimento
+) {
 
 
 }

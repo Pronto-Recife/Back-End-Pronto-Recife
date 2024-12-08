@@ -43,9 +43,6 @@ public class ConsultaService {
         ConsultaModel consulta = consultaRepository.findById(id)
                 .orElseThrow(() -> new CustomException("ID da consulta não encontrado!", HttpStatus.NOT_FOUND, null));
 
-        if (!consultaRepository.isHorarioDisponivel(novaDataConsulta)) {
-            throw new CustomException("Horário indisponível", HttpStatus.CONFLICT, null);
-        }
 
         consulta.setDataConsulta(novaDataConsulta);
         consultaRepository.save(consulta);

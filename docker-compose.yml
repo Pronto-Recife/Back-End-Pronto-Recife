@@ -4,7 +4,7 @@ services:
     container_name: mysql
     environment:
       MYSQL_DATABASE: prontorecife
-      MYQSL_USER: root
+      MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:

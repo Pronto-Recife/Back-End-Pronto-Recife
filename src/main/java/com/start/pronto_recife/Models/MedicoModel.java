@@ -19,11 +19,10 @@ public class MedicoModel{
     private String nomeCompleto;
     private String telefone;
     private String email;
-    private String especialidade;
     @Column(name = "senha")
     private String senha;
-    @Column(name = "id_estabelecimento", unique = true)
-    private String idEstabelecimento;
+//    @Column(name = "id_estabelecimento", unique = true)
+//    private String idEstabelecimento;
 
 
     @PrePersist

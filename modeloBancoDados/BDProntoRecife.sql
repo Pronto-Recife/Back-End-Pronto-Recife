@@ -43,7 +43,6 @@ CREATE TABLE `medico` (
   id CHAR(36) DEFAULT (UUID()),
   crm VARCHAR(15) UNIQUE NOT NULL,
   id_estabelecimento CHAR(36),
-  especialidade VARCHAR(255) NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
   nome_completo VARCHAR(100) NOT NULL,
