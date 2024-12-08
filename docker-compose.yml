@@ -1,6 +1,6 @@
 services:
   mysql:
-    image: mysql:8.0.40-debian
+    image: mysql:8.0.40
     container_name: mysql
     environment:
       MYSQL_DATABASE: prontorecife

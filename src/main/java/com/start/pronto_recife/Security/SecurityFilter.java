@@ -26,10 +26,12 @@
 //    private final TokenService tokenService;
 //
 //    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
-//        if (request.getRequestURI().startsWith("/swagger")
-//                || request.getRequestURI().startsWith("/v3/api-docs")
-//                || request.getRequestURI().startsWith("/auth/register")
-//                || request.getRequestURI().startsWith("/auth/login")) {
+//        if (request.getRequestURI().startsWith("/swagger") ||
+//        request.getRequestURI().startsWith("/v3/api-docs") ||
+//        request.getRequestURI().startsWith("/paciente/register") ||
+//        request.getRequestURI().startsWith("/medico/register") ||
+//        request.getRequestURI().startsWith("/profissional-saude/register") ||
+//        request.getRequestURI().startsWith("/authorization/login")){
 //            filterChain.doFilter(request, response);
 //            return;
 //        }
@@ -49,7 +51,7 @@
 //        filterChain.doFilter(request, response);
 //    }
 //    private String recoverToken (@NonNull HttpServletRequest request){
-//        String authHeader = request.getHeader("x-auth");
+//        String authHeader = request.getHeader("Authorization");
 //        if (authHeader == null || authHeader.isEmpty()) {
 //            throw new AuthorizationHeaderException();
 //        }

@@ -1,0 +1,26 @@
+name: Deploy in Railway -> Dev
+
+on:
+  push:
+    branches:
+      - Merge
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install curl
+        run: |
+          sudo apt-get update && sudo apt-get install -y curl
+
+      - name: Install Railway CLI
+        run: |
+          curl -fsSL https://railway.app/install.sh | sh
+
+      - name: Deploy to Railway
+        run: |
+          RAILWAY_TOKEN=${{ secrets.RAILWAY_TOKEN }} railway up --service=prontorecife-app --environment dev --verbose

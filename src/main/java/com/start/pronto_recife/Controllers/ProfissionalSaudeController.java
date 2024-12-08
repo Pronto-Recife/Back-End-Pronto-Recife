@@ -17,7 +17,7 @@ import java.util.List;
 public class ProfissionalSaudeController {
     private final ProfissionalSaudeService profissionalSaudeService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<DTOProfissionalSaude> saveProfissionalSaude(@RequestBody @Valid DTOProfissionalSaude dtoProfissionalSaude) {
         return ResponseEntity.status(HttpStatus.CREATED).body(profissionalSaudeService.createProfissionalSaude(dtoProfissionalSaude));
     }
