@@ -1,6 +1,6 @@
 package com.start.pronto_recife.Models;
 
-import  jakarta.persistence.*;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +20,8 @@ public class AgenteSaudeModel {
     private String telefone;
     @Column(name = "senha")
     private String senha;
+    @Column(name = "id_estabelecimento", unique = true)
+    private String idEstabelecimento;
 
     @PrePersist
     public void prePersist(){

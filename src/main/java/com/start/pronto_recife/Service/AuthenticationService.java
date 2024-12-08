@@ -1,16 +1,14 @@
 package com.start.pronto_recife.Service;
 
-import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.DTOs.Auth.AuthenticationRequestDTO;
-import com.start.pronto_recife.Models.EstabelecimentoModel;
+import com.start.pronto_recife.Enum.LoginFlowEnum;
+import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Models.ProfissionalSaudeModel;
 import com.start.pronto_recife.Repositories.MedicoRepository;
 import com.start.pronto_recife.Repositories.PacienteRepository;
-import com.start.pronto_recife.Enum.LoginFlowEnum;
 import com.start.pronto_recife.Repositories.ProfissionalSaudeRepository;
-import io.jsonwebtoken.Jwts;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -19,9 +17,6 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 @Service
 @RequiredArgsConstructor

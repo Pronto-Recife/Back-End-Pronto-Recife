@@ -1,9 +1,9 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOResponsavel;
+import com.start.pronto_recife.DTOs.DTOResponsavelRequest;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.ResponsavelMapper;
-import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import com.start.pronto_recife.Repositories.ResponsavelRepository;
@@ -47,10 +47,8 @@ public class  ResponsavelService {
     public void deleteResponsavel(String id) {
         ResponsavelModel responsavelExists = responsavelRepository.findById(id).orElseThrow(() ->
                 new CustomException("Responsável não encontrado!", HttpStatus.NOT_FOUND, null));
-        List<PacienteModel> paciente = pacienteRepository.findByResponsavelCpf(responsavelExists.getCpf());
-        List<PacienteModel> pacienteUpdate = paciente.stream()
-                .peek(p -> p.setResponsavelCpf(null)).toList();
-        pacienteRepository.saveAll(pacienteUpdate);
+
+
         responsavelRepository.delete(responsavelExists);
     }
 }

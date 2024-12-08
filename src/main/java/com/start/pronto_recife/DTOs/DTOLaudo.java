@@ -4,5 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 
 public record DTOLaudo(
         @NotBlank
-        String descricao) {
+        String descricao
+        ) {
 }

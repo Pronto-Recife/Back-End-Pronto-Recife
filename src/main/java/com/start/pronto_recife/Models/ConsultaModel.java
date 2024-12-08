@@ -21,13 +21,28 @@ public class ConsultaModel {
     private String id;
     @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_consulta")
-    private LocalDate data_consulta;
-    private String tratamentos_prescritos;
-    private String instrucoes_recomendacoes;
+    private LocalDate dataConsulta;
+    @Column(name = "tratamentos_prescritos")
+    private String tratamentosPrescritos;
+    @Column(name = "instrucoes_recomendacoes")
+    private String instrucoesRecomendacoes;
+    @Column(name = "sintomas")
     private String sintomas;
-    private String historico_familiar;
-    private String paciente_id;
-    private String medico_id;
+    @Column(name = "historico_familiar")
+    private String historicoFamiliar;
+    @Column(name = "condicoes_gerais")
+    private String condicoesGerais;
+    @Column(name = "diagnostico")
+    private String diagnostico;
+    @Column(name = "paciente_id")
+    private String pacienteId;
+    @Column(name = "medico_id")
+    private String medicoId;
+    @Column(name = "laudos_id")
+    private String laudoId;
+    @Column(name = "id_estabelecimento")
+    private String idEstabelecimento;
+
 
     @PrePersist
     public void prePersist() {

@@ -24,8 +24,14 @@ public class EstabelecimentoModel {
     private String telefone;
     @Column(name = "email", unique = true)
     private String email;
+    @Column(name = "id_medico", unique = true)
     private String idMedico;
+    @Column(name = "id_consulta", unique = true)
     private String idConsulta;
+    @Column(name = "id_paciente", unique = true)
+    private String idpaciente;
+    @Column(name = "id_agente_saude", unique = true)
+    private String idagenteSaude;
 
     @PrePersist
     public void prePersist() {

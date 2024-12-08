@@ -1,10 +1,13 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOPaciente;
+import com.start.pronto_recife.DTOs.DTOPacienteRequest;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.PacienteModel;
+import com.start.pronto_recife.Models.ResponsavelModel;
 import com.start.pronto_recife.Repositories.PacienteRepository;
+import com.start.pronto_recife.Repositories.ResponsavelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +21,7 @@ public class PacienteService {
 
     private final PacienteMapper pacienteMapper;
     private final PacienteRepository pacienteRepository;
+    private final ResponsavelRepository responsavelRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public DTOPaciente createPaciente(DTOPaciente dtoPaciente){
@@ -26,6 +30,7 @@ public class PacienteService {
         }
         String criptSenha = passwordEncoder.encode(dtoPaciente.senha());
         PacienteModel newPaciente = pacienteMapper.toModel(dtoPaciente);
+
         newPaciente.setSenha(criptSenha);
         pacienteRepository.save(newPaciente);
         return pacienteMapper.toDTO(newPaciente);

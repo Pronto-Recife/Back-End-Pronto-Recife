@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOResponsavel;
+import com.start.pronto_recife.DTOs.DTOResponsavelRequest;
 import com.start.pronto_recife.Service.ResponsavelService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

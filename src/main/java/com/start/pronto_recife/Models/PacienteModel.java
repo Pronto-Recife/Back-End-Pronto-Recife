@@ -19,8 +19,6 @@ public class PacienteModel{
     private String id;
     @Column(name = "cpf", unique = true, length = 14)
     private String CPF;
-    @Column (name = "estado_civil")
-    private String estadoCivil;
     @Column (name = "nome_completo")
     private String nomeCompleto;
     @Column(name = "data_nascimento")
@@ -30,10 +28,17 @@ public class PacienteModel{
     private String email;
     private String senha;
     private String telefone;
+    @Column(name = "contato_representante", unique = true)
     private String contatoRepresentante;
     private String endereco;
-    @Column(name = "responsavel_CPF", length = 14)
+    private String alergia;
+    @Column(name = "condicoes_cronicas", unique = true)
+    private String condicoesCronicas;
+    @Column(name = "responsavel_cpf", unique = true)
     private String responsavelCpf;
+    @Column(name = "id_estabelecimento", unique = true)
+    private String idEstabelecimento;
+
 
     @PrePersist
     public void prePersist() {

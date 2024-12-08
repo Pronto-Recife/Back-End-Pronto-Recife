@@ -17,13 +17,14 @@ public class MedicoModel{
     @Column(name = "CRM", unique = true)
     private String CRM;
     private String nomeCompleto;
-    //    private String especialidade;
     private String telefone;
     private String email;
+    private String especialidade;
     @Column(name = "senha")
     private String senha;
-    @Column (name = "id_estabelecimento")
+    @Column(name = "id_estabelecimento", unique = true)
     private String idEstabelecimento;
+
 
     @PrePersist
     public void prePersist() {

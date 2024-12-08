@@ -14,13 +14,15 @@ import java.util.UUID;
 public class ProfissionalSaudeModel {
     @Id
     private String id;
-    @Column(name = "coren", unique = true)
+    @Column(name = "coren")
     private String coren;
     private String nome;
     private String email;
-    private String telefone;
     @Column (name = "senha")
     private String senha;
+    private String telefone;
+    @Column (name = "id_estabelecimento")
+    private String idEstabelecimento;
 
     @PrePersist
     public void prePersist(){

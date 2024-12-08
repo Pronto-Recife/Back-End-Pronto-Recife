@@ -17,15 +17,12 @@ public class HistoricoModel {
 
     @Id
     private String id;
-//    private String nomePaciente;
-//    private String dataConsulta;
-//    private String diagnostico;
-//    private String medicamentosPrescritos;
-//    private String observacoes;
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "cirurgias_anteriores",columnDefinition = "TEXT")
     private String cirurgias_anteriores;
-    private String condicoes_gerais;
-    private String paciente_id;
+    @Column(name = "paciente_id")
+    private String pacienteId;
+
+
 
     @PrePersist
     public void prePersist() {

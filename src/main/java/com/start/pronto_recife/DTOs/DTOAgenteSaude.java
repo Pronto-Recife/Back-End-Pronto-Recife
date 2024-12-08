@@ -10,14 +10,16 @@ public record DTOAgenteSaude(
         @NotNull @NotBlank @Pattern
         (regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "CPF deve estar no formato 123.456.789-10")
         String CPF,
-    @NotNull @NotBlank
- String nome,
-     @NotNull @NotNull
- String senha,
-     @NotNull @NotBlank @Pattern
-      (regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
-         @Schema(example = "(81)912345678")
-   String telefone,
-     @Email @NotBlank
- String email){
+        @NotNull @NotBlank
+        String nome,
+        @NotNull @NotNull
+        String senha,
+        @NotNull @NotBlank @Pattern
+        ( regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
+        @Schema(example = "(81)912345678")
+        String telefone,
+        @Email @NotBlank
+        String email,
+        String idEstabelecimento){
+
 }

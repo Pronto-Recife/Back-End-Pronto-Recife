@@ -21,13 +21,14 @@ public class ExamePacienteModel {
     @GeneratedValue(strategy =GenerationType.UUID)
     @JdbcTypeCode(Types.VARCHAR)
     private String id;
+    @Column(name = "data_exame")
     private LocalDate dataExame;
     @Column(name = "resultado", nullable = false)
     private String resultado;
     @Column(name = "nome_do_exame", nullable = false, length = 100)
     private String nomeDoExame;
-    @Column(name = "paciente_cpf", nullable = false)
-    private String pacienteCPF;
+    @Column(name = "paciente_id", nullable = false)
+    private String pacienteId;
     @Column(name = "consulta_id")
     private String consultaId;
 }

@@ -1,7 +1,6 @@
 package com.start.pronto_recife.Exceptions;
 
 import lombok.Getter;
-
 import org.springframework.http.HttpStatus;
 
 import java.util.Map;

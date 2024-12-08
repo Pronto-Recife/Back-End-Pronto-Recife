@@ -2,10 +2,8 @@ package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOLaudo;
 import com.start.pronto_recife.Service.LaudoService;
-
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

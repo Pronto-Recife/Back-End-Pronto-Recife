@@ -14,5 +14,8 @@ public interface PacienteRepository extends JpaRepository<PacienteModel, String>
     Optional<PacienteModel> findByCPF(@NotBlank @Pattern(regexp = "\\d{11}") String CPF);
     List<PacienteModel> findByResponsavelCpf(String CPF);
     Optional<PacienteModel> findByEmail(String Email);
+//    @Query(value = "select * from paciente join responsavel on paciente.responsavel_id = responsavel_id",
+//              nativeQuery = true )
+//    List<PacienteModel> findALL();
 
 }

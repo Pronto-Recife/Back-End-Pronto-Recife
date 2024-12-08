@@ -13,13 +13,17 @@ public record DTOEstabelecimento(@NotNull @NotBlank @Pattern(regexp = "^\\d{2}\\
                                  String nome,
                                  @NotNull @NotBlank
                                  String endereco,
+                                 @NotBlank @NotNull @Email
+                                 String email,
                                  @NotBlank @NotNull @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
                                  @Schema(example = "(81)912345678")
                                  String telefone,
-                                 @NotBlank @NotNull @Email
-                                 String email,
                                  @NotBlank @NotNull
-                                 String senha
+                                 String senha,
+                                 String idMedico,
+                                 String idConsulta,
+                                 String idpaciente,
+                                 String idagenteSaude
 
 ) {
 }

@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOHistorico;
+import com.start.pronto_recife.DTOs.DTOHistoricoRequest;
 import com.start.pronto_recife.Service.HistoricoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class HistoricoController {
         return ResponseEntity.status(HttpStatus.OK).body(listHistorico);
     }
     @PostMapping("/create")
-    public ResponseEntity<DTOHistorico> createHistorico(@RequestBody @Valid DTOHistorico dtoHistorico){
+    public ResponseEntity<DTOHistorico> createHistorico(@RequestBody @Valid DTOHistoricoRequest dtoHistorico){
         DTOHistorico createdHistorico = historicoService.createHistorico(dtoHistorico);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdHistorico);
     }

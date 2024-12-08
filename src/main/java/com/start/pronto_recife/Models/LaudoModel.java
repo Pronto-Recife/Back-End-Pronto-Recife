@@ -1,17 +1,18 @@
 package com.start.pronto_recife.Models;
 
-// ORM Jakarta dependencies
-import jakarta.persistence.*;
-// Importing classes Getter/Setter from lombok
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-// Built-in class to generate and interpret UUID
+
 import java.util.UUID;
-// database's entity
+
 @Entity
-// Define table name
 @Table(name = "laudos")
-// Generate getter and setter methods
+
 @Getter @Setter
 public class LaudoModel {
     @Id

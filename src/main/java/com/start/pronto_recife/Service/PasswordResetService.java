@@ -1,11 +1,11 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.PasswordResetTokenDTO;
+import com.start.pronto_recife.Mapper.MedicoMapper;
+import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Models.PasswordResetToken;
-import com.start.pronto_recife.Mapper.MedicoMapper;
-import com.start.pronto_recife.Mapper.PacienteMapper;
 import com.start.pronto_recife.Repositories.MedicoRepository;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import com.start.pronto_recife.Repositories.PasswordResetTokenRepository;

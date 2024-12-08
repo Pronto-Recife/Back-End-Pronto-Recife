@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOPaciente;
+import com.start.pronto_recife.DTOs.DTOPacienteRequest;
 import com.start.pronto_recife.Service.PacienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
