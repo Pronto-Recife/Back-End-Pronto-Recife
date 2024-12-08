@@ -17,10 +17,10 @@ import java.util.UUID;
 public class PacienteModel{
     @Id
     private String id;
-    @Column(name = "cpf", unique = true, length = 14)
-    private String CPF;
     @Column (name = "nome_completo")
     private String nomeCompleto;
+    @Column(name = "cpf", unique = true, length = 14)
+    private String CPF;
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
     private String genero;
@@ -36,8 +36,6 @@ public class PacienteModel{
     private String condicoesCronicas;
     @Column(name = "responsavel_cpf", unique = true)
     private String responsavelCpf;
-    @Column(name = "id_estabelecimento", unique = true)
-    private String idEstabelecimento;
 
 
     @PrePersist

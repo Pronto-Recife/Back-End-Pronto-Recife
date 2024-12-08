@@ -1,11 +1,9 @@
 services:
   mysql:
-    image: mysql:8.0.40
+    image: bitnami/mysql:8.0.40
     container_name: mysql
     environment:
       MYSQL_DATABASE: prontorecife
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3307:3306"
@@ -41,4 +39,4 @@ services:
       FLYWAY_SCHEMAS: prontorecife
     volumes:
       - ./flyway:/flyway/sql
-    command: migrate
+    command: -connectRetries=10 migrate

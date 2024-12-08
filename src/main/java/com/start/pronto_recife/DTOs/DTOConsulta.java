@@ -20,8 +20,7 @@ public record DTOConsulta(
         String diagnostico,
         String pacienteId,
         String medicoId,
-        String laudoId,
-        String idEstabelecimento)
+        String laudoId)
         {
 
         }

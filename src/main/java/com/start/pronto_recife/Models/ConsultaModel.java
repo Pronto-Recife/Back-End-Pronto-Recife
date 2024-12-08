@@ -40,8 +40,7 @@ public class ConsultaModel {
     private String medicoId;
     @Column(name = "laudos_id")
     private String laudoId;
-    @Column(name = "id_estabelecimento")
-    private String idEstabelecimento;
+
 
 
     @PrePersist

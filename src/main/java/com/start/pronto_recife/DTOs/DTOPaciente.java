@@ -34,8 +34,7 @@ public record DTOPaciente(
         String endereco,
         String alergia,
         String condicoesCronicas,
-        String responsavelCpf,
-        String idEstabelecimento
+        String responsavelCpf
         ){
 
 

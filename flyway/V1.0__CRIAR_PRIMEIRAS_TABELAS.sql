@@ -36,6 +36,7 @@ CREATE TABLE `medico` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
+
 -- Tabela Agente de Saúde
 CREATE TABLE IF NOT EXISTS agente_saude (
   id CHAR(36) DEFAULT (UUID()),
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS profissional_saude (
 
 -- Tabela Paciente
 CREATE TABLE IF NOT EXISTS `paciente` (
-  id CHAR(36) DEFAULT (UUID()),
+  id CHAR(36) DEFAULT (UUID()),                             -- id será gerado automaticamente no prePersist
   nome_completo VARCHAR(100) NOT NULL,
   cpf VARCHAR(14) UNIQUE NOT NULL,
   data_nascimento DATE NOT NULL,
@@ -69,9 +70,10 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   senha VARCHAR(255) NOT NULL,
   telefone VARCHAR(15) NOT NULL,
   contato_representante VARCHAR(15),
-  cep VARCHAR(9) NOT NULL,
   endereco VARCHAR(250) NOT NULL,
-  responsavel_cpf VARCHAR(14),
+  alergia VARCHAR(255),                                      -- Alergia
+  condicoes_cronicas VARCHAR(255),                            -- Condições crônicas
+  responsavel_cpf VARCHAR(14),                               -- Responsável CPF
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   CONSTRAINT `fk_paciente_responsavel`
@@ -79,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
     REFERENCES `responsavel` (`cpf`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
 
 -- Tabela Consulta
 CREATE TABLE `consulta` (
@@ -88,6 +91,8 @@ CREATE TABLE `consulta` (
   instrucoes_recomendacoes TEXT NOT NULL,
   sintomas TEXT NOT NULL,
   historico_familiar VARCHAR(255),
+  condicoes_gerais VARCHAR(255),
+  diagnostico VARCHAR(255), -- Novo campo adicionado
   paciente_id CHAR(36) NOT NULL,
   medico_id CHAR(36) NOT NULL,
   laudos_id CHAR(36),
@@ -105,6 +110,7 @@ CREATE TABLE `consulta` (
     REFERENCES `laudos` (`id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
 
 -- Tabelas de Reset de Senha
 CREATE TABLE password_reset_token (
