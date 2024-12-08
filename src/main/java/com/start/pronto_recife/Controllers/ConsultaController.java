@@ -1,7 +1,6 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOConsulta;
-import com.start.pronto_recife.DTOs.DTOConsultaRequest;
 import com.start.pronto_recife.Service.ConsultaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +34,12 @@ public class ConsultaController {
         DTOConsulta consulta = consultaService.updateConsultaByid(id, dtoconsulta);
         return ResponseEntity.status(HttpStatus.OK).body(consulta);
     }
+    @PutMapping("updateData")
+    public ResponseEntity<DTOConsulta> updateData(@PathVariable String id, @RequestBody @Valid DTOConsulta dtoconsulta) {
+        DTOConsulta updatedData = consultaService.reagendarConsulta(id, dtoconsulta.dataConsulta());
+        return ResponseEntity.status(HttpStatus.OK).body(updatedData);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteConsultaById(@PathVariable String id) {
         consultaService.deleteConsulta(id);

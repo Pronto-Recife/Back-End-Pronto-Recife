@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,6 +34,22 @@ public class ConsultaService {
         }catch (Exception e){
             throw new CustomException("Erro ao registrar consulta!", HttpStatus.BAD_REQUEST, null);
         }
+    }
+    public DTOConsulta reagendarConsulta(String id, LocalDate novaDataConsulta) {
+        if (novaDataConsulta.isBefore(LocalDate.now())) {
+            throw new CustomException("Não é permitido reagendar consultas para dias anteriores!", HttpStatus.BAD_REQUEST, null);
+        }
+
+        ConsultaModel consulta = consultaRepository.findById(id)
+                .orElseThrow(() -> new CustomException("ID da consulta não encontrado!", HttpStatus.NOT_FOUND, null));
+
+        if (!consultaRepository.isHorarioDisponivel(novaDataConsulta)) {
+            throw new CustomException("Horário indisponível", HttpStatus.CONFLICT, null);
+        }
+
+        consulta.setDataConsulta(novaDataConsulta);
+        consultaRepository.save(consulta);
+        return consultaMapper.toDTO(consulta);
     }
     public void deleteConsulta(String id){
         if (!consultaRepository.existsById(id)) {
@@ -57,4 +74,5 @@ public class ConsultaService {
         consultaRepository.save(updatedModel);
         return consultaMapper.toDTO(updatedModel);
     }
+
 }
