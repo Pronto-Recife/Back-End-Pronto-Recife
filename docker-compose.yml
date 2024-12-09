@@ -10,9 +10,9 @@ services:
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
       interval: 10s
-      retries: 5
-      start_period: 30s
-      timeout: 10s
+      retries: 2
+      start_period: 10s
+      timeout: 5s
 
   app:
     depends_on:
