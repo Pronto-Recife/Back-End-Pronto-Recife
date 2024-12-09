@@ -86,13 +86,13 @@ CREATE TABLE IF NOT EXISTS `paciente` (
 -- Tabela Consulta
 CREATE TABLE `consulta` (
   id CHAR(36) DEFAULT (UUID()),
-  data_consulta DATE NOT NULL,
+  data_consulta DATETIME NOT NULL,
   tratamentos_prescritos TEXT NOT NULL,
   instrucoes_recomendacoes TEXT NOT NULL,
   sintomas TEXT NOT NULL,
   historico_familiar VARCHAR(255),
   condicoes_gerais VARCHAR(255),
-  diagnostico VARCHAR(255), -- Novo campo adicionado
+  diagnostico VARCHAR(255),
   paciente_id CHAR(36) NOT NULL,
   medico_id CHAR(36) NOT NULL,
   laudos_id CHAR(36),
@@ -110,6 +110,7 @@ CREATE TABLE `consulta` (
     REFERENCES `laudos` (`id`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
 
 
 -- Tabelas de Reset de Senha

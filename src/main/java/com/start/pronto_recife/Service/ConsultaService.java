@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -35,8 +36,8 @@ public class ConsultaService {
             throw new CustomException("Erro ao registrar consulta!", HttpStatus.BAD_REQUEST, null);
         }
     }
-    public DTOConsulta reagendarConsulta(String id, LocalDate novaDataConsulta) {
-        if (novaDataConsulta.isBefore(LocalDate.now())) {
+    public DTOConsulta reagendarConsulta(String id, LocalDateTime novaDataConsulta) {
+        if (novaDataConsulta.isBefore(LocalDateTime.now())) {
             throw new CustomException("Não é permitido reagendar consultas para dias anteriores!", HttpStatus.BAD_REQUEST, null);
         }
 
