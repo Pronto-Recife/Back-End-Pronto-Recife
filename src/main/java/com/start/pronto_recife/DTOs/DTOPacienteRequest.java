@@ -14,26 +14,9 @@ public record DTOPacienteRequest(
                           String CPF,
         @NotNull @NotBlank
                           String nomeCompleto,
-        String estadoCivil,
-        @NotNull
-                          @JsonFormat(pattern="yyyy-MM-dd")
-                          LocalDate dataNascimento,
-        @NotBlank
-                          String genero,
         @NotBlank @NotNull @Email
                           String email,
         @NotBlank @NotNull
-                          String senha,
-        @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
-                          @Schema(example = "(81)912345678")
-                          String telefone,
-        @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
-                          @Schema(example = "(81)912345678")
-                          String contatoRepresentante,
-        @NotNull @NotBlank@Pattern(regexp = "^\\d{5}-\\d{3}$", message = "O CEP deve estar no formato 12345-678")
-                          @NotBlank
-                          String endereco,
-
-        String responsavelId){
+                          String senha){
 
 }

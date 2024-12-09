@@ -50,4 +50,8 @@ public class ExamePacienteService {
         }
         exameRepository.deleteById(id);
     }
+    public List<ExamePacienteDTO> buscarExamesPorPacienteId(String pacienteId) {
+        List<ExamePacienteModel> exames=exameRepository.findByPacienteId(pacienteId);
+        return examePacienteMapper.listEntitytoListDTO(exames);
+    }
 }

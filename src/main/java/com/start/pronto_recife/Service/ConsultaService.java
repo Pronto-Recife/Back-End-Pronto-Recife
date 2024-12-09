@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -35,8 +36,8 @@ public class ConsultaService {
             throw new CustomException("Erro ao registrar consulta!", HttpStatus.BAD_REQUEST, null);
         }
     }
-    public DTOConsulta reagendarConsulta(String id, LocalDate novaDataConsulta) {
-        if (novaDataConsulta.isBefore(LocalDate.now())) {
+    public DTOConsulta reagendarConsulta(String id, LocalDateTime novaDataConsulta) {
+        if (novaDataConsulta.isBefore(LocalDateTime.now())) {
             throw new CustomException("Não é permitido reagendar consultas para dias anteriores!", HttpStatus.BAD_REQUEST, null);
         }
 
@@ -70,6 +71,29 @@ public class ConsultaService {
         updatedModel.setId(existingConsulta.getId());
         consultaRepository.save(updatedModel);
         return consultaMapper.toDTO(updatedModel);
+    }
+
+    public List<DTOConsulta> buscarConsultasRealizadas(String pacienteId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel =consultaRepository.findByPacienteIdAndDataConsultaBefore(pacienteId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+
+    public List<DTOConsulta> buscarConsultasFuturas(String pacienteId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel = consultaRepository.findByPacienteIdAndDataConsultaAfter(pacienteId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+    public List<DTOConsulta> buscarConsultasRealizadasMedico(String medicoId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel =consultaRepository.findByMedicoIdAndDataConsultaBefore(medicoId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+
+    public List<DTOConsulta> buscarConsultasFuturasMedico(String medicoId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel = consultaRepository.findByMedicoIdAndDataConsultaAfter(medicoId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
     }
 
 }
