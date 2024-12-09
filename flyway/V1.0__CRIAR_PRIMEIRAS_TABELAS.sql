@@ -118,11 +118,11 @@ CREATE TABLE password_reset_token (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     token VARCHAR(6) NOT NULL,
     expiration DATETIME NOT NULL,
-    medico_id CHAR(36),
-    paciente_id CHAR(36),
-    CONSTRAINT fk_password_reset_medico FOREIGN KEY (medico_id)
+    id_medico CHAR(36),
+    id_paciente CHAR(36),
+    CONSTRAINT fk_password_reset_medico FOREIGN KEY (id_medico)
         REFERENCES medico (id) ON DELETE CASCADE ON UPDATE NO ACTION,
-    CONSTRAINT fk_password_reset_paciente FOREIGN KEY (paciente_id)
+    CONSTRAINT fk_password_reset_paciente FOREIGN KEY (id_paciente)
         REFERENCES paciente (id) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 

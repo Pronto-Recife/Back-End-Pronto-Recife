@@ -30,11 +30,11 @@ public class PasswordResetService {
 
     }
     public PasswordResetTokenDTO generateToken(String email) {
-        if(pacienteRepository.findByEmail(email).isEmpty()){
-            throw new CustomException("Email não existe!", HttpStatus.NO_CONTENT, null);
-        }
-        if(medicoRepository.findByEmail(email).isEmpty()){
-            throw new CustomException("Email não existe!", HttpStatus.NO_CONTENT, null);
+        Optional<PacienteModel> paciente = pacienteRepository.findByEmail(email);
+        Optional<MedicoModel> medico = medicoRepository.findByEmail(email);
+
+        if (paciente.isEmpty() && medico.isEmpty()) {
+            throw new CustomException("Email não encontrado.", HttpStatus.NO_CONTENT, null);
         }
 
         PasswordResetToken token = new PasswordResetToken();

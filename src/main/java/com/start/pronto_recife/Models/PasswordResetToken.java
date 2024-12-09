@@ -24,8 +24,10 @@ public class PasswordResetToken {
     @Column(nullable = false)
     private LocalDateTime expiration;
 
+    @Column(name = "medico_id")
     private String idMedico;
 
+    @Column(name = "paciente_id")
     private String idPaciente;
 
 }
