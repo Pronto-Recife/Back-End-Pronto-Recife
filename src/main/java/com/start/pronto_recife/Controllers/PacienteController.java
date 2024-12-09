@@ -19,7 +19,7 @@ public class PacienteController {
     private final PacienteService pacienteService;
 
     @PostMapping("/register")
-    public ResponseEntity<DTOPaciente> savePaciente(@RequestBody DTOPacienteRequest dtoPaciente){
+    public ResponseEntity<DTOPaciente> savePaciente(@RequestBody DTOPaciente dtoPaciente){
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteService.createPaciente(dtoPaciente));
     }
     @GetMapping("/all")

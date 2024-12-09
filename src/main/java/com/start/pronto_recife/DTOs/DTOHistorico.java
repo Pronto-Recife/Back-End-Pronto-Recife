@@ -7,6 +7,8 @@ public record DTOHistorico(
 
                            @NotNull @NotBlank
                            String cirurgias_anteriores,
+                           @NotNull @NotBlank
+                           String condicoes_gerais,
                            String pacienteId) {
 
 

@@ -70,4 +70,5 @@ public class ConsultaController {
         List<DTOConsulta> consultas = consultaService.buscarConsultasFuturasMedico(id);
         return consultas.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(consultas);
     }
+
 }

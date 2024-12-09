@@ -24,7 +24,7 @@ public class PacienteService {
     private final ResponsavelRepository responsavelRepository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public DTOPaciente createPaciente(DTOPacienteRequest dtoPaciente){
+    public DTOPaciente createPaciente(DTOPaciente dtoPaciente){
         if(pacienteRepository.findByCPF(dtoPaciente.CPF()).isPresent()){
             throw new CustomException("CPF já cadastrado por outro usuário!", HttpStatus.CONFLICT, null);
         }

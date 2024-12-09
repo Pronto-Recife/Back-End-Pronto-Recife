@@ -1,5 +1,6 @@
 package com.start.pronto_recife.Controllers;
 
+import com.start.pronto_recife.DTOs.DTOConsulta;
 import com.start.pronto_recife.DTOs.DTOHistorico;
 import com.start.pronto_recife.DTOs.DTOHistoricoRequest;
 import com.start.pronto_recife.Service.HistoricoService;
@@ -26,5 +27,10 @@ public class HistoricoController {
     public ResponseEntity<DTOHistorico> createHistorico(@RequestBody @Valid DTOHistoricoRequest dtoHistorico){
         DTOHistorico createdHistorico = historicoService.createHistorico(dtoHistorico);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdHistorico);
+    }
+    @GetMapping("/paciente/{id}/historico")
+    public ResponseEntity<List<DTOHistorico>> buscarHist(@PathVariable String id) {
+        List<DTOHistorico> historico = historicoService.buscarHistorico(id);
+        return historico.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(historico);
     }
 }
