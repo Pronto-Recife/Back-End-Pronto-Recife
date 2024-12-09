@@ -14,7 +14,6 @@ public record DTOPaciente(
         String CPF,
         @NotNull @NotBlank
         String nomeCompleto,
-        @NotNull
         @JsonFormat(pattern="yyyy-MM-dd")
         LocalDate dataNascimento,
         @NotBlank

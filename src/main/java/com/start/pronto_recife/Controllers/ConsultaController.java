@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/consulta")
 @RestController("consulta")
 @RequiredArgsConstructor
 public class ConsultaController {
 
     private final ConsultaService consultaService;
 
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<DTOConsulta> saveConsulta(@RequestBody @Valid DTOConsulta dtoconsulta) {
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaService.createConsulta(dtoconsulta));
     }
-    @GetMapping()
+    @GetMapping("/getAll")
     public ResponseEntity<List<DTOConsulta>> getallConsultas() {
         return ResponseEntity.status(HttpStatus.OK).body(consultaService.findAll());
     }

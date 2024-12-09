@@ -6,12 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name ="consulta")
+@Table(name = "consulta")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,9 +19,11 @@ public class ConsultaModel {
 
     @Id
     private String id;
-    @JsonFormat(pattern="yyyy-MM-dd")
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") // Formato para data e hora
     @Column(name = "data_consulta")
-    private LocalDateTime dataConsulta;
+    private LocalDateTime dataConsulta; // Alterado de LocalDate para LocalDateTime
+
     @Column(name = "tratamentos_prescritos")
     private String tratamentosPrescritos;
     @Column(name = "instrucoes_recomendacoes")

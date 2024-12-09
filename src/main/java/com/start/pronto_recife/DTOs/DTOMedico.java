@@ -7,7 +7,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DTOMedico (@NotBlank @NotNull @Pattern(regexp = "^\\d{6}-[A-Z]{2}$", message = "O CRM deve estar no formato 123456-PE")
+public record DTOMedico (
+                         String id,
+                         @NotBlank @NotNull @Pattern(regexp = "^\\d{6}-[A-Z]{2}$", message = "O CRM deve estar no formato 123456-PE")
                          @Schema(example = "123456-PE")
                          String CRM,
                          @NotBlank @NotNull
