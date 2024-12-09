@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record DTOConsulta(
-        @NotNull  @JsonFormat(pattern="yyyy-MM-dd")
-        LocalDate dataConsulta,
+        @NotNull  @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+        LocalDateTime dataConsulta,
         @NotNull
         String tratamentosPrescritos,
         @NotNull

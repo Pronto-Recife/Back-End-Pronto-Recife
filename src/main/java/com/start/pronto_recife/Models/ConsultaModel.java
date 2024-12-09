@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -21,7 +22,7 @@ public class ConsultaModel {
     private String id;
     @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_consulta")
-    private LocalDate dataConsulta;
+    private LocalDateTime dataConsulta;
     @Column(name = "tratamentos_prescritos")
     private String tratamentosPrescritos;
     @Column(name = "instrucoes_recomendacoes")

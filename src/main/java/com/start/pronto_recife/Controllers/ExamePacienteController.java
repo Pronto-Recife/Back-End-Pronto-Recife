@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.ExamePacienteDTO;
+import com.start.pronto_recife.Models.ExamePacienteModel;
 import com.start.pronto_recife.Service.ExamePacienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -38,5 +39,10 @@ public class ExamePacienteController {
     public ResponseEntity<Void> deleteExamePaciente(@PathVariable String id) {
         examePacienteService.deleteExame(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @GetMapping("/{pacienteId}/exames")
+    public ResponseEntity<List<ExamePacienteDTO>> buscarExamesPorPacienteId(@PathVariable String pacienteId) {
+        List<ExamePacienteDTO> exames = examePacienteService.buscarExamesPorPacienteId(pacienteId);
+        return exames.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(exames);
     }
 }
