@@ -73,4 +73,27 @@ public class ConsultaService {
         return consultaMapper.toDTO(updatedModel);
     }
 
+    public List<DTOConsulta> buscarConsultasRealizadas(String pacienteId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel =consultaRepository.findByPacienteIdAndDataConsultaBefore(pacienteId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+
+    public List<DTOConsulta> buscarConsultasFuturas(String pacienteId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel = consultaRepository.findByPacienteIdAndDataConsultaAfter(pacienteId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+    public List<DTOConsulta> buscarConsultasRealizadasMedico(String medicoId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel =consultaRepository.findByMedicoIdAndDataConsultaBefore(medicoId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+
+    public List<DTOConsulta> buscarConsultasFuturasMedico(String medicoId) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        List<ConsultaModel> consultaModel = consultaRepository.findByMedicoIdAndDataConsultaAfter(medicoId, dataAtual);
+        return consultaMapper.listModeltoListDTO(consultaModel);
+    }
+
 }
