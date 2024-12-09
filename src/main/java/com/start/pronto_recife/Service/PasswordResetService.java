@@ -1,8 +1,7 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.PasswordResetTokenDTO;
-import com.start.pronto_recife.Mapper.MedicoMapper;
-import com.start.pronto_recife.Mapper.PacienteMapper;
+import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Models.MedicoModel;
 import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Models.PasswordResetToken;
@@ -10,6 +9,7 @@ import com.start.pronto_recife.Repositories.MedicoRepository;
 import com.start.pronto_recife.Repositories.PacienteRepository;
 import com.start.pronto_recife.Repositories.PasswordResetTokenRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,27 +22,32 @@ public class PasswordResetService {
     private final PasswordResetTokenRepository tokenRepository;
     private final MedicoRepository medicoRepository;
     private final PacienteRepository pacienteRepository;
-    private final MedicoMapper medicoMapper;
-    private final PacienteMapper pacienteMapper;
+    private final EmailService emailService;
 
-    // Gera o token de reset de senha
-    public PasswordResetTokenDTO generateToken(String email, boolean isMedico) {
+
+    public void sendTokenMail(String to, PasswordResetTokenDTO resetTokenDto){
+            emailService.sendEmail(to, resetTokenDto.token(), resetTokenDto.expiration().toString());
+
+    }
+    public PasswordResetTokenDTO generateToken(String email) {
+        if(pacienteRepository.findByEmail(email).isEmpty()){
+            throw new CustomException("Email não existe!", HttpStatus.NO_CONTENT, null);
+        }
+        if(medicoRepository.findByEmail(email).isEmpty()){
+            throw new CustomException("Email não existe!", HttpStatus.NO_CONTENT, null);
+        }
+
         PasswordResetToken token = new PasswordResetToken();
         token.setToken(generateNumericToken());
         token.setExpiration(LocalDateTime.now().plusMinutes(30));
 
-        if (isMedico) {
-            MedicoModel medicoModel = medicoRepository.findByEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Médico não encontrado com o email fornecido."));
-            token.setMedico(medicoModel);
-        } else {
-//            PacienteModel pacienteModel = pacienteRepository.findByEmail(email)
-//                    .orElseThrow(() -> new RuntimeException("Paciente não encontrado com o email fornecido."));
-//            token.setPaciente(pacienteModel);
-        }
-
         PasswordResetToken savedToken = tokenRepository.save(token);
-        return new PasswordResetTokenDTO(savedToken.getToken(), savedToken.getExpiration());
+        PasswordResetTokenDTO savedTokenDto = new PasswordResetTokenDTO(savedToken.getToken(), savedToken.getExpiration());
+
+//      Envia o email
+        sendTokenMail(email, savedTokenDto);
+
+        return savedTokenDto;
     }
 
     // Valida o token
@@ -65,15 +70,24 @@ public class PasswordResetService {
         PasswordResetToken resetToken = tokenRepository.findByToken(token)
                 .orElseThrow(() -> new RuntimeException("Token inválido ou expirado!"));
 
-        if (resetToken.getMedico() != null) {
-            MedicoModel medico = resetToken.getMedico();
+
+        if (!validateToken(resetToken.getToken())){
+           throw new CustomException("Token Invalido", HttpStatus.UNAUTHORIZED, null);
+        }
+        if(resetToken.getIdMedico() != null){
+            MedicoModel medico = medicoRepository.findById(resetToken.getIdMedico()).orElseThrow(() ->
+                    new CustomException("Profissional não encontrado!", HttpStatus.NOT_FOUND, null));
             medico.setSenha(newPassword);
             medicoRepository.save(medico);
-        } else if (resetToken.getPaciente() != null) {
-            PacienteModel paciente = resetToken.getPaciente();
+        }
+
+        if(resetToken.getIdPaciente() != null){
+            PacienteModel paciente = pacienteRepository.findById(resetToken.getIdPaciente()).orElseThrow(() ->
+                    new CustomException("Paciente não encontrado!", HttpStatus.NOT_FOUND, null));
             paciente.setSenha(newPassword);
             pacienteRepository.save(paciente);
         }
+
 
         tokenRepository.delete(resetToken);
     }

@@ -15,8 +15,8 @@ public class PasswordResetController {
 
     @PostMapping("/generate-token")
     @ResponseStatus(HttpStatus.CREATED)
-    public PasswordResetTokenDTO generateToken(@RequestParam String email, @RequestParam boolean isMedico) {
-        return passwordResetService.generateToken(email, isMedico);
+    public PasswordResetTokenDTO generateToken(@RequestParam String email) {
+        return passwordResetService.generateToken(email);
     }
 
     @PostMapping("/validate-token")
@@ -24,7 +24,7 @@ public class PasswordResetController {
         return passwordResetService.validateToken(token);
     }
 
-    @PostMapping("/reset-password")
+    @PutMapping("/reset-password")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void resetPassword(@RequestParam String token, @RequestParam String newPassword) {
         passwordResetService.resetPassword(token, newPassword);
