@@ -27,9 +27,7 @@ public class ConsultaService {
 
     public DTOConsulta createConsulta(DTOConsulta dtoconsulta){
         try {
-
             ConsultaModel consultaModel = consultaMapper.toModel(dtoconsulta);
-
             ConsultaModel savedConsulta = consultaRepository.save(consultaModel);
             return consultaMapper.toDTO(savedConsulta);
         }catch (Exception e){

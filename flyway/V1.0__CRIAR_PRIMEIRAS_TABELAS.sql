@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS profissional_saude (
 
 -- Tabela Paciente
 CREATE TABLE IF NOT EXISTS `paciente` (
+<<<<<<< HEAD
     id CHAR(36) DEFAULT (UUID()),                             -- id será gerado automaticamente no prePersist
     nome_completo VARCHAR(100) NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
@@ -77,6 +78,24 @@ CREATE TABLE IF NOT EXISTS `paciente` (
     PRIMARY KEY (`id`),
     UNIQUE INDEX `email_UNIQUE` (`email` ASC),
     CONSTRAINT `fk_paciente_responsavel`
+=======
+  id CHAR(36) DEFAULT (UUID()),                             -- id será gerado automaticamente no prePersist
+  nome_completo VARCHAR(100) NOT NULL,
+  cpf VARCHAR(14) UNIQUE NOT NULL,
+  data_nascimento DATE,
+  genero VARCHAR(10),
+  email VARCHAR(100),
+  senha VARCHAR(255) NOT NULL,
+  telefone VARCHAR(15) ,
+  contato_representante VARCHAR(15),
+  endereco VARCHAR(250) ,
+  alergia VARCHAR(255),                                      -- Alergia
+  condicoes_cronicas VARCHAR(255),                            -- Condições crônicas
+  responsavel_cpf VARCHAR(14),                               -- Responsável CPF
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  CONSTRAINT `fk_paciente_responsavel`
+>>>>>>> c6f457f (logica de agendamento consulta)
     FOREIGN KEY (`responsavel_cpf`)
     REFERENCES `responsavel` (`cpf`)
     ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -85,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
 
 -- Tabela Consulta
 CREATE TABLE `consulta` (
+<<<<<<< HEAD
                             id CHAR(36) DEFAULT (UUID()),
                             data_consulta DATETIME,
                             tratamentos_prescritos TEXT,
@@ -109,6 +129,32 @@ CREATE TABLE `consulta` (
                                 FOREIGN KEY (`laudos_id`)
                                     REFERENCES `laudos` (`id`)
                                     ON DELETE NO ACTION ON UPDATE NO ACTION
+=======
+  id CHAR(36) DEFAULT (UUID()),
+  data_consulta DATETIME,
+  tratamentos_prescritos TEXT,
+  instrucoes_recomendacoes TEXT,
+  sintomas TEXT,
+  historico_familiar VARCHAR(255),
+  condicoes_gerais VARCHAR(255),
+  diagnostico VARCHAR(255),
+  paciente_id CHAR(36),
+  medico_id CHAR(36),
+  laudos_id CHAR(36),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_consulta_paciente`
+    FOREIGN KEY (`paciente_id`)
+    REFERENCES `paciente` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_consulta_medico`
+    FOREIGN KEY (`medico_id`)
+    REFERENCES `medico` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_consulta_laudos`
+    FOREIGN KEY (`laudos_id`)
+    REFERENCES `laudos` (`id`)
+    ON DELETE NO ACTION ON UPDATE NO ACTION
+>>>>>>> c6f457f (logica de agendamento consulta)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 

@@ -10,19 +10,10 @@ public record DTOConsulta(
         @NotNull
         @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
         LocalDateTime dataConsulta,
-
-        @NotNull
         String tratamentosPrescritos,
-
-        @NotNull
         String instrucoesRecomendacoes,
-
-        @NotNull
         String sintomas,
-
-        @NotNull
         String historicoFamiliar,
-
         String condicoesGerais,
         String diagnostico,
         String pacienteId,
