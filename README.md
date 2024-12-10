@@ -1,4 +1,5 @@
 Back-End-Pronto-Recife
+
 ![image](https://github.com/user-attachments/assets/cba946d3-d716-40ee-8123-1bd8f71c289e)
 
 
@@ -15,21 +16,27 @@ O foco do desenvolvimento inclui:
 
 ________________________________________
 🚀 Funcionalidades
+
 🩺 Gerenciamento de Prontuários Médicos
 •	CRUD completo (Create, Read, Update, Delete) para registros médicos.
 •	Autenticação de usuários com permissões específicas para pacientes e profissionais de saúde.
+
 📍 Geolocalização de Unidades
 •	Fornece dados detalhados sobre unidades de saúde, incluindo distância do usuário.
 •	Integração com serviços de mapas para cálculo de rotas e geolocalização dinâmica.
+
 🔐 Segurança Avançada
 •	Autenticação via JWT (JSON Web Token).
 •	Dados criptografados em trânsito (HTTPS) e em repouso.
 •	Logs de auditoria para rastreamento de alterações sensíveis.
+
 🔄 Integração com o Front-End
 •	API RESTful para comunicação em tempo real com o front-end.
 •	Endpoints organizados para fácil utilização e manutenção.
 ________________________________________
+
 🛠️ Tecnologias Utilizadas
+
 Back-End:
 •	Spring Boot - Ambiente de execução JavaScript.
 •	Java - Framework web para criação de APIs RESTful.
@@ -45,6 +52,7 @@ Outras Ferramentas:
 
 ________________________________________
 🧑‍💻 Como Rodar o Projeto Localmente
+
 Pré-requisitos:
 •	Docker e Docker Compose
 •	Git
