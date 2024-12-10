@@ -46,6 +46,7 @@ Back-End:
 o	MySQL - Sistema de banco de dados relacional.
 
 Outras Ferramentas:
+
 •	Docker: Containerização para um ambiente de execução consistente.
 •	Swagger: Documentação interativa para APIs REST.
 •	JWT: Gerenciamento de autenticação e segurança.
@@ -54,6 +55,7 @@ ________________________________________
 🧑‍💻 Como Rodar o Projeto Localmente
 
 Pré-requisitos:
+
 •	Docker e Docker Compose
 •	Git
 Passos:
