@@ -1,14 +1,10 @@
-Back-End-Pronto-Recife
+# Back-End - Pronto Recife
 
-![image](https://github.com/user-attachments/assets/cba946d3-d716-40ee-8123-1bd8f71c289e)
+![Pronto Recife](https://i.imgur.com/MNS94gD.png)
 
+## 📖 Sobre o Projeto
 
-
-Pronto Recife 🚀
-
-📖 Sobre o Projeto
-
-O Pronto Recife é uma iniciativa desenvolvida para facilitar o acesso aos serviços de saúde no município de Recife. A plataforma centraliza informações de unidades de saúde e prontuários médicos, permitindo que cidadãos e profissionais da saúde acessem rapidamente informações essenciais de forma segura e prática.
+O **Pronto Recife** é uma iniciativa desenvolvida para facilitar o acesso aos serviços de saúde no município de Recife. A plataforma centraliza informações de unidades de saúde e prontuários médicos, permitindo que cidadãos e profissionais da saúde acessem rapidamente informações essenciais de forma segura e prática.
 Este repositório contém o código do back-end da aplicação, desenvolvido com foco em:
 
 •	Escalabilidade: Suporte a uma grande quantidade de acessos simultâneos.
@@ -18,67 +14,68 @@ Este repositório contém o código do back-end da aplicação, desenvolvido com
 •	Integração Simplificada: API projetada para comunicação eficiente com o front-end.
 
 ________________________________________
-🚀 Funcionalidades
 
-🩺 Gerenciamento de Prontuários Médicos
+## 🚀 Funcionalidades
+
+### 🩺 Gerenciamento de Prontuários Médicos
 
 •	CRUD completo (Create, Read, Update, Delete) para registros médicos.
 
 •	Autenticação de usuários com permissões específicas para pacientes e profissionais de saúde.
 
-📍 Geolocalização de Unidades
+### 📍 Geolocalização de Unidades
 
 •	Fornece dados detalhados sobre unidades de saúde, incluindo distância do usuário.
 
 •	Integração com serviços de mapas para cálculo de rotas e geolocalização dinâmica.
 
-🔐 Segurança Avançada
+### 🔐 Segurança Avançada
 
-•	Autenticação via JWT (JSON Web Token).
+1•	Autenticação via JWT (JSON Web Token).
 
 •	Dados criptografados em trânsito (HTTPS) e em repouso.
 
-🔄 Integração com o Front-End
+### 🔄 Integração com o Front-End
 
 •	API RESTful para comunicação em tempo real com o front-end.
 
 •	Endpoints organizados para fácil utilização e manutenção.
 ________________________________________
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-Back-End:
+**Back-End:**
 
-•	Spring Boot - Ambiente de execução JavaScript.
+•	**Spring Boot** - Ambiente de execução JavaScript.
 
-•	Java - Framework web para criação de APIs RESTful.
+•	**Java** - Framework web para criação de APIs RESTful.
 
-•	Spring Security - Para as questões de segurança.
-
-
-Banco de Dados:
-
-•	MySQL - Sistema de banco de dados relacional.
+•	**Spring Security** - Para as questões de segurança.
 
 
-Outras Ferramentas:
+**Banco de Dados:**
 
-•	Docker: Containerização para um ambiente de execução consistente.
+•	**MySQL** - Sistema de banco de dados relacional.
 
-•	Swagger: Documentação interativa para APIs REST.
 
-•	JWT: Gerenciamento de autenticação e segurança.
+**Outras Ferramentas:**
+
+•	**Docker:** Containerização para um ambiente de execução consistente.
+
+•	**Swagger:** Documentação interativa para APIs REST.
+
+•	**JWT:** Gerenciamento de autenticação e segurança.
 
 ________________________________________
-🧑‍💻 Como Rodar o Projeto Localmente
+## 🧑‍💻 Como Rodar o Projeto Localmente
 
-Pré-requisitos:
+### Pré-requisitos:
 
-•	Docker e Docker Compose
+•	**Docker e Docker Compose:** O Docker para criar containers, e o Docker Compose para gerenciar múltiplos containers.
 
-•	Git
+•	**Git:**  Para clonar o repositório.
 
-Passos:
+### Passos:
 
 1.	Clone o repositório:
 git clone https://github.com/Pronto-Recife/Back-End-Pronto-Recife.git
