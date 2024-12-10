@@ -39,8 +39,6 @@ ________________________________________
 
 •	Dados criptografados em trânsito (HTTPS) e em repouso.
 
-•	Logs de auditoria para rastreamento de alterações sensíveis.
-
 🔄 Integração com o Front-End
 
 •	API RESTful para comunicação em tempo real com o front-end.
