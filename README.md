@@ -73,8 +73,8 @@ ________________________________________
 ### Pré-requisitos:
 
 •	**Docker e Docker Compose:** O Docker para criar containers, e o Docker Compose para gerenciar múltiplos containers.
-
 •	**Git:**  Para clonar o repositório.
+•  **Java 21** - Para rodar a aplicação 
 
 ### Passos:
 
@@ -86,16 +86,17 @@ ________________________________________
    cd Back-End-Pronto-Recife
 3. Instale as dependências:
    ```bash
-   npm install
+   docker-compose build
 4. Execute o projeto:
    ```bash
-   npm start
+   docker-compose up
 5. Abra o navegador e acesse:
    ```bash
-   http://localhost:3000
-
+   http://localhost:8080
+6. Documentação Swagger(opcional): 
+   ```bash
+   http://localhost:8080/swagger-ui/index.html
 ---
-
 **Pronto para testar o Pronto Recife!**
 
 Se você tiver dúvidas, sugestões ou feedback sobre o projeto, entre em contato com a equipe pelo e-mail: prontorecife@gmail.com. Estamos animados para continuar melhorando este projeto! 🚀
