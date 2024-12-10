@@ -3,12 +3,14 @@ services:
     image: bitnami/mysql:8.0.40
     container_name: mysql
     environment:
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: root
       MYSQL_DATABASE: prontorecife
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3307:3306"
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 2
       start_period: 10s
@@ -21,7 +23,7 @@ services:
     build: .
     container_name: prontorecife_app
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3307/prontorecife
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/prontorecife
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     ports:
@@ -29,10 +31,13 @@ services:
   flyway:
     image: flyway/flyway:8.5.11
     container_name: flyway
+    depends_on:
+      mysql:
+        condition: service_healthy
     environment:
-      FLYWAY_URL: jdbc:mysql://autorack.proxy.rlwy.net:32736/prontorecife?allowPublicKeyRetrieval=true&useSSL=false
+      FLYWAY_URL: jdbc:mysql://mysql:3306/prontorecife
       FLYWAY_USER: root
-      FLYWAY_PASSWORD: ZMNMcoCclYMYjKAAGygxbyccOcpiQQVc
+      FLYWAY_PASSWORD: root
       FLYWAY_SCHEMAS: prontorecife
     volumes:
       - ./flyway:/flyway/sql
