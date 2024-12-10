@@ -47,25 +47,25 @@ ________________________________________
 
 **Back-End:**
 
-•	**Spring Boot** - Ambiente de execução JavaScript.
+-	**Spring Boot** - Ambiente de execução JavaScript.
 
-•	**Java** - Framework web para criação de APIs RESTful.
+-	**Java** - Framework web para criação de APIs RESTful.
 
-•	**Spring Security** - Para as questões de segurança.
+-	**Spring Security** - Para as questões de segurança.
 
 
 **Banco de Dados:**
 
-•	**MySQL** - Sistema de banco de dados relacional.
+-	**MySQL** - Sistema de banco de dados relacional.
 
 
 **Outras Ferramentas:**
 
-•	**Docker:** Containerização para um ambiente de execução consistente.
+-	**Docker:** Containerização para um ambiente de execução consistente.
 
-•	**Swagger:** Documentação interativa para APIs REST.
+-	**Swagger:** Documentação interativa para APIs REST.
 
-•	**JWT:** Gerenciamento de autenticação e segurança.
+-	**JWT:** Gerenciamento de autenticação e segurança.
 
 ________________________________________
 ## 🧑‍💻 Como Rodar o Projeto Localmente
@@ -78,8 +78,27 @@ ________________________________________
 
 ### Passos:
 
-1.	Clone o repositório:
-git clone https://github.com/Pronto-Recife/Back-End-Pronto-Recife.git
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Pronto-Recife/Back-End-Pronto-Recife.git
+2. Acesse a pasta do projeto:
+   ```bash
+   cd Back-End-Pronto-Recife
+3. Instale as dependências:
+   ```bash
+   npm install
+4. Execute o projeto:
+   ```bash
+   npm start
+5. Abra o navegador e acesse:
+   ```bash
+   http://localhost:3000
+
+---
+
+**Pronto para testar o Pronto Recife!**
+
+Se você tiver dúvidas, sugestões ou feedback sobre o projeto, entre em contato com a equipe pelo e-mail: prontorecife@gmail.com. Estamos animados para continuar melhorando este projeto! 🚀
 ________________________________________
 🤝 Contribuição
 
