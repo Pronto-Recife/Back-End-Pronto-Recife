@@ -43,12 +43,13 @@ ________________________________________
 🛠️ Tecnologias Utilizadas
 
 Back-End:
+
 •	Spring Boot - Ambiente de execução JavaScript.
 •	Java - Framework web para criação de APIs RESTful.
 •	Spring Security - Para as questões de segurança.
 
 •	Banco de Dados:
-o	MySQL - Sistema de banco de dados relacional.
+•	MySQL - Sistema de banco de dados relacional.
 
 Outras Ferramentas:
 
