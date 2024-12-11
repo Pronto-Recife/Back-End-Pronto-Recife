@@ -42,7 +42,7 @@ public class ConsultaController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedData);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteConsultaById(@PathVariable String id) {
         consultaService.deleteConsulta(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
