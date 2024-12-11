@@ -78,24 +78,8 @@ ________________________________________
 
 ### Passos:
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Pronto-Recife/Back-End-Pronto-Recife.git
-2. Acesse a pasta do projeto:
-   ```bash
-   cd Back-End-Pronto-Recife
-3. Instale as dependências:
-   ```bash
-   docker-compose build
-4. Execute o projeto:
-   ```bash
-   docker-compose up
-5. Abra o navegador e acesse:
-   ```bash
-   http://localhost:8080
-6. Documentação Swagger(opcional): 
-   ```bash
-   http://localhost:8080/swagger-ui/index.html
+Basta acessar a pagina:
+![1Site Pronto Recife](https://frontend-dev-97d9.up.railway.app/)
 ---
 **Pronto para testar o Pronto Recife!**
 
