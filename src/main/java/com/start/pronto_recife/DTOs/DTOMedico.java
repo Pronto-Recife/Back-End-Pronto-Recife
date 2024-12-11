@@ -14,7 +14,7 @@ public record DTOMedico (
                          String CRM,
                          @NotBlank @NotNull
                          String nomeCompleto,
-                         @NotBlank @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
+                         @Pattern(regexp = "\\(81\\)9\\d{8}", message = "O número de telefone deve estar no formato (81)912345678")
                          @Schema(example = "(81)912345678")
                          String telefone,
                          @Email @NotBlank @NotNull
