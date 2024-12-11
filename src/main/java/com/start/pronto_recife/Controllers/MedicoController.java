@@ -1,6 +1,7 @@
 package com.start.pronto_recife.Controllers;
 
 import com.start.pronto_recife.DTOs.DTOMedico;
+import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Service.MedicoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,11 @@ public class MedicoController {
     @GetMapping("/{CRM}")
     public ResponseEntity<DTOMedico> getMedico(@PathVariable(value="CRM") String CRM){
         DTOMedico medico = medicoService.findByCRM(CRM);
+        return ResponseEntity.ok().body(medico);
+    }
+    @GetMapping("/find/id/{id}")
+    public ResponseEntity<DTOMedico> getMedicoById(@PathVariable(value = "id") String id){
+        DTOMedico medico = medicoService.findById(id);
         return ResponseEntity.ok().body(medico);
     }
     @PutMapping("{CRM}")

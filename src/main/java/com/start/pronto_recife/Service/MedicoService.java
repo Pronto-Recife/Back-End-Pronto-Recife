@@ -1,9 +1,11 @@
 package com.start.pronto_recife.Service;
 
 import com.start.pronto_recife.DTOs.DTOMedico;
+import com.start.pronto_recife.DTOs.DTOPaciente;
 import com.start.pronto_recife.Exceptions.CustomException;
 import com.start.pronto_recife.Mapper.MedicoMapper;
 import com.start.pronto_recife.Models.MedicoModel;
+import com.start.pronto_recife.Models.PacienteModel;
 import com.start.pronto_recife.Repositories.MedicoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -48,6 +50,11 @@ public class MedicoService {
         MedicoModel medicoExists = medicoRepository.findByCRM(CRM).orElseThrow(() ->
                 new CustomException("CRM não encontrado!", HttpStatus.NOT_FOUND, null));
         return medicoMapper.toDTO(medicoExists);
+    }
+    public DTOMedico findById(String id){
+        MedicoModel medico = medicoRepository.findById(id).orElseThrow(() ->
+                new CustomException("Profissional não existe!", HttpStatus.NOT_FOUND, null));
+        return medicoMapper.toDTO(medico);
     }
     public void deleteMedico(String CRM){
         medicoRepository.findByCRM(CRM).orElseThrow(() ->

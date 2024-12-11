@@ -31,6 +31,11 @@ public class PacienteController {
         DTOPaciente paciente = pacienteService.findByCPF(CPF);
         return ResponseEntity.ok().body(paciente);
     }
+    @GetMapping("/find/id/{id}")
+    public ResponseEntity<DTOPaciente> getPacienteById(@PathVariable(value = "id") String id){
+        DTOPaciente paciente = pacienteService.findById(id);
+        return ResponseEntity.ok().body(paciente);
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<DTOPaciente> updatePaciente(@PathVariable String id, @RequestBody @Valid DTOPaciente dtoPaciente) {
         DTOPaciente paciente = pacienteService.updatePaciente(id, dtoPaciente);

@@ -52,6 +52,12 @@ public class PacienteService {
                 new CustomException("Paciente não encontrado!", HttpStatus.NOT_FOUND, null));
         return pacienteMapper.toDTO(pacientExists);
     }
+    public DTOPaciente findById(String id){
+        PacienteModel paciente = pacienteRepository.findById(id).orElseThrow(() ->
+                new CustomException("Paciente não existe!", HttpStatus.NOT_FOUND, null));
+        return pacienteMapper.toDTO(paciente);
+    }
+
     public void deletePaciente(String id){
         PacienteModel pacienteExists = pacienteRepository.findById(id).orElseThrow(() ->
                 new CustomException("Paciente não Existe!", HttpStatus.NOT_FOUND, null));
