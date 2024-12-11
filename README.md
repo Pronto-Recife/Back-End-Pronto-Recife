@@ -84,3 +84,8 @@ https://frontend-dev-97d9.up.railway.app/
 **Pronto para testar o Pronto Recife!**
 
 Se você tiver dúvidas, sugestões ou feedback sobre o projeto, entre em contato com a equipe pelo e-mail: prontorecife@gmail.com. Estamos animados para continuar melhorando este projeto! 🚀
+________________________________________
+### 🤝 Contribuição
+
+Sinta-se à vontade para abrir issues ou enviar pull requests. Para dúvidas, entre em contato pelo e-mail: prontorecife@gmail.com.
+Pronto para contribuir com o Pronto Recife! 
