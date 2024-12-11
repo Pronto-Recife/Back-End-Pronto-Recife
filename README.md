@@ -79,7 +79,7 @@ ________________________________________
 ### Passos:
 
 Basta acessar a pagina:
-![1Site Pronto Recife](https://frontend-dev-97d9.up.railway.app/)
+https://frontend-dev-97d9.up.railway.app/
 ---
 **Pronto para testar o Pronto Recife!**
 
