@@ -47,7 +47,7 @@ ________________________________________
 
 **Back-End:**
 
--	**Spring Boot** - Ambiente de execução JavaScript.
+-	**Spring Boot** - Ambiente de execução Java.
 
 -	**Java** - Framework web para criação de APIs RESTful.
 
